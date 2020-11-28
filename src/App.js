@@ -1,13 +1,22 @@
-// importamos la libreria de axios
-import axios from 'axios';
+import React from 'react';
+import {getAnuncios} from './API/anuncios';
+class App extends React.Component {
+  state = {
+    anuncio: null,
+  };
 
-// creamos un cliente que vamos a utilizar para hacer las peticiones a nuestro end points
-const cliente = axios.create({
-  baseUrl: process.env.REACT_APP_API_BASE_URL,
-});
+  async componentDidMount() {
+    const resultado = await getAnuncios();
+    this.setState({ anuncio: resultado });
+    console.log(resultado)
+  }
 
-function App() {
-  return <div className="App">Practica Fundamentos React</div>
+  render() {
+    console.log(this.state)
+    const {anuncio} = this.state;
+    return <div className="App">{JSON.stringify(anuncio)}</div>
+  }
+
 }
 
 export default App;
