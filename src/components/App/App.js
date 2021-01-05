@@ -1,8 +1,8 @@
 import React from 'react';
-import { getAnuncios } from './API/anuncios';
+import { getAnuncios } from '../../API/anuncios';
 class App extends React.Component {
 	state = {
-		anuncio: null,
+		anuncio: null
 	};
 
 	async componentDidMount() {
