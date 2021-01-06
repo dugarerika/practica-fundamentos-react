@@ -5,7 +5,7 @@ import Imagen from '../shared/Imagen';
 import './Anuncio.css';
 
 const Anuncio = ({ anuncio }) => (
-	<li className='anuncio bordered'>
+	<article className='anuncio bordered'>
 		<div className='left'>
 			<Imagen src={anuncio.rows.foto} />
 		</div>
@@ -18,7 +18,7 @@ const Anuncio = ({ anuncio }) => (
 			</div>
 			<div />
 		</div>
-	</li>
+	</article>
 );
 
 export default Anuncio;
