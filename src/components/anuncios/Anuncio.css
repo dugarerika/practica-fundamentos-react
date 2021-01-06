@@ -1,0 +1,45 @@
+.anuncio {
+	border-bottom-width: 1px;
+	cursor: pointer;
+	display: flex;
+	padding: 10px 15 px 0 15px;
+	transition: background-color 0.2s;
+}
+.anuncio:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+.anuncio-cabecera {
+	color: rgb(101, 119, 134);
+	margin-bottom: 2px;
+}
+.anuncio-precio {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	max-width: 425px;
+}
+.anuncio-nombre {
+	color: rgb(20, 23, 26);
+	font-weight: bold;
+}
+.anuncio-venta {
+	margin-left: 5px;
+}
+.anuncio-separador {
+	padding: 0 5px;
+}
+
+.bordered {
+	border-color: rgb(230, 236, 240);
+	border-style: solid;
+}
+
+.left {
+	flex: 0 0 auto;
+	margin-right: 10px;
+}
+
+.right {
+	flex: 1;
+	padding-bottom: 10px;
+}
