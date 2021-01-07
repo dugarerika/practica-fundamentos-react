@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginPage.css';
+import Button from '../shared/Button';
 
 class LoginPage extends React.Component {
 	render() {
@@ -9,7 +10,9 @@ class LoginPage extends React.Component {
 				<form>
 					<input type='text' />
 					<input type='password' />
-					<input type='submit' value='Log in' />
+					<Button type='submit' className='loginPage-button' variant='primary'>
+						Log In
+					</Button>
 				</form>
 			</div>
 		);
