@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginPage.css';
 import Button from '../shared/Button';
+import FormInput from '../shared/FormInput';
 
 class LoginPage extends React.Component {
 	state = {
@@ -27,18 +28,22 @@ class LoginPage extends React.Component {
 
 		return (
 			<div className='LoginPage'>
-				<h1 className='LoginPage-tittle'>Log in the Twitter</h1>
+				<h1 className='LoginPage-tittle'>Log in Nodepop</h1>
 				<form>
-					<input
+					<FormInput
 						name='email'
 						type='text'
+						label='phone, email or username'
+						className='loginPage-field'
 						value={email}
 						onChange={this.haddleChange}
 					/>
-					<input
+					<FormInput
 						name='password'
 						type='password'
+						label='password'
 						value={password}
+						className='loginPage-field'
 						onChange={this.haddleChange}
 					/>
 					<Button
