@@ -14,7 +14,7 @@ const Button = styled.button`
 	border-color: ${accentColor};
 	color: ${(props) =>
 
-			props.variant == 'primary' ? 'black' :
+			props.variant === 'primary' ? 'black' :
 			'accentColor'};
 	cursor: pointer;
 	display: inline-flex;
