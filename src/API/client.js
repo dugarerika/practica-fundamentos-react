@@ -19,6 +19,12 @@ client.login = (credentials) =>
 		return auth;
 	});
 
+export const configureClient = (accessToken) => {
+	if (accessToken) {
+		setAuthorizationHeader(accessToken);
+	}
+};
+
 client.interceptors.response.use((response) => response.data);
 
 export default client;

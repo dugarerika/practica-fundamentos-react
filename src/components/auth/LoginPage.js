@@ -3,6 +3,7 @@ import './LoginPage.css';
 import Button from '../shared/Button';
 import FormInput from '../shared/FormInput';
 import { login } from '../../API/auth';
+import T from 'prop-types';
 
 class LoginPage extends React.Component {
 	state = {
@@ -15,26 +16,24 @@ class LoginPage extends React.Component {
 	};
 
 	handleSubmit = async (event) => {
+		const { onLogin } = this.props;
 		const { form: credentials } = this.state;
 		event.preventDefault();
 		console.log(event);
 		this.setState({ submmiting: true });
 
 		try {
-			const usuarioID = await login(credentials);
+			const info = await login(credentials);
+			const loggedUser = info.ok;
+			console.log(loggedUser);
 			this.setState({ submmiting: false, error: null });
-			console.log(credentials);
+			if (info.ok === false) throw info.error;
+			onLogin(loggedUser);
 		} catch (error) {
+			console.log('memandaron al error');
 			this.setState({ submmiting: false, error });
 		}
 	};
-
-	// handleSubmit = (event) => {
-	// 	const { form: credentials } = this.setState;
-	// 	event.preventDefault();
-	// 	login(credentials);
-	// 	console.log(event);
-	// };
 
 	handleChange = (event) => {
 		console.log(event.target.value);
@@ -44,12 +43,12 @@ class LoginPage extends React.Component {
 	};
 
 	couldSubmit = () => {
-		const { form: { email, password } } = this.state;
-		return email && password;
+		const { form: { email, password }, submmiting } = this.state;
+		return !submmiting && email && password;
 	};
 
 	render() {
-		const { form: { email, password } } = this.state;
+		const { form: { email, password }, error } = this.state;
 
 		return (
 			<div className='LoginPage'>
@@ -79,9 +78,11 @@ class LoginPage extends React.Component {
 						Log In
 					</Button>
 				</form>
+				{error && <div className='loginPage-error'>{error}</div>}
 			</div>
 		);
 	}
 }
 
+LoginPage.propTypes = { onLogin: T.func.isRequired };
 export default LoginPage;
