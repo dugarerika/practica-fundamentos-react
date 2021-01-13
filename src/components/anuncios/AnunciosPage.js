@@ -2,7 +2,9 @@ import React from 'react';
 
 import { getAllAnuncios } from '../../API/anuncios';
 
-// import Anuncio from '../anuncios/Anuncio';
+import Anuncio from '../anuncios/Anuncio';
+
+// const Anuncio = ({ anuncio }) => <li>{JSON.stringify(anuncio)}</li>;
 
 class AnunciosPage extends React.Component {
 	state = {
@@ -23,8 +25,15 @@ class AnunciosPage extends React.Component {
 		const { anuncios } = this.state;
 		return (
 			<div>
-				resultado
-				<div className='AnunciosPage'>{JSON.stringify(anuncios)}</div>
+				<div className='AnunciosPage'>
+					{anuncios && (
+						<ul>
+							{anuncios.map((anuncio) => (
+								<Anuncio key={anuncio._id} anuncio={anuncio} />
+							))}
+						</ul>
+					)}
+				</div>
 			</div>
 		);
 	}
