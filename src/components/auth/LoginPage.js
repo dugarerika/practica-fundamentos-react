@@ -47,6 +47,10 @@ class LoginPage extends React.Component {
 		return !submmiting && email && password;
 	};
 
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
+
 	render() {
 		const { form: { email, password }, error } = this.state;
 

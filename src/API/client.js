@@ -19,7 +19,7 @@ client.login = (credentials) =>
 		return auth;
 	});
 
-export const configureClient = (accessToken) => {
+export const configuraClient = (accessToken) => {
 	if (accessToken) {
 		setAuthorizationHeader(accessToken);
 	}

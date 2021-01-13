@@ -1,10 +1,11 @@
 import React from 'react';
 import AnunciosPage from '../anuncios/AnunciosPage';
 import LoginPage from '../auth/LoginPage';
+import T from 'prop-types';
 
 class App extends React.Component {
 	state = {
-		loggedUser: false
+		loggedUser: this.props.initialLogged
 	};
 
 	handleLogin = (loggedUser) => this.setState({ loggedUser });
@@ -20,5 +21,9 @@ class App extends React.Component {
 		);
 	}
 }
+
+App.propTypes = {
+	initialLogged: T.bool
+};
 
 export default App;
