@@ -70,7 +70,7 @@ body {
 		#acd6ef 0%,
 		#6ec2e8 100%
 	);
-	background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+
 	border-radius: 30px;
 	border: 1px solid #66add6;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
@@ -91,7 +91,6 @@ body {
 		#b6e2ff 0%,
 		#6ec2e8 100%
 	);
-	background-image: linear-gradient(top left 90deg, #b6e2ff 0%, #6ec2e8 100%);
 }
 
 .loginPage-submit:active {
@@ -100,7 +99,6 @@ body {
 		#6ec2e8 0%,
 		#b6e2ff 100%
 	);
-	background-image: linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
 }
 
 #lower {

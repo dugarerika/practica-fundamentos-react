@@ -2,6 +2,7 @@ import React from 'react';
 import AnunciosPage from '../anuncios/AnunciosPage';
 import LoginPage from '../auth/LoginPage';
 import T from 'prop-types';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
 	state = {
@@ -10,13 +11,18 @@ class App extends React.Component {
 
 	handleLogin = (loggedUser) => this.setState({ loggedUser });
 
+	componentDidMount() {}
+
 	render() {
-		const { loggedUser } = this.state;
+		// const { loggedUser } = this.state;
 		return (
 			<div className='App'>
-				{
-					loggedUser ? <AnunciosPage /> :
-					<LoginPage onLogin={this.handleLogin} />}
+				<Route path='/' exact>
+					<AnunciosPage />
+				</Route>
+				<Route path='/login'>
+					<LoginPage onLogin={this.handleLogin} />
+				</Route>
 			</div>
 		);
 	}

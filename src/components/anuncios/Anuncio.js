@@ -6,13 +6,13 @@ import './Anuncio.css';
 const Anuncio = ({ anuncio }) => (
 	<article className='anuncio bordered'>
 		<div className='left'>
-			<Imagen src={anuncio.photo} />
+			<Imagen src={anuncio.foto} />
 		</div>
 		<div className='right'>
 			<div className='anuncio-cabecera'>
-				<span className='anuncio-nombre'>{anuncio.name}</span>
-				<span className='anuncio-venta'>{anuncio.sale}</span>
-				<span className='anuncio-precio'>{anuncio.price}</span>
+				<span className='anuncio-nombre'>{anuncio.nombre}</span>
+				<span className='anuncio-venta'>{anuncio.venta}</span>
+				<span className='anuncio-precio'>{anuncio.precio}</span>
 				<span className='anuncio-etiquetas'>
 					<ul>
 						<li>{anuncio.tags[0]}</li>
