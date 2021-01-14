@@ -3,6 +3,7 @@ import React from 'react';
 import { getAllAnuncios } from '../../API/anuncios';
 
 import Anuncio from '../anuncios/Anuncio';
+import Layout from '../layout/Layout';
 
 // const Anuncio = ({ anuncio }) => <li>{JSON.stringify(anuncio)}</li>;
 
@@ -11,13 +12,25 @@ class AnunciosPage extends React.Component {
 		anuncios: null
 	};
 
-	async componentDidMount() {
-		// const anuncios = await getAllAnuncios();
-		// this.state.anuncios = anuncios.result;
-		// console.log(this.state);
-
+	getAnuncios = async () => {
 		const resp = await getAllAnuncios();
 		this.setState({ anuncios: resp.result.rows });
+	};
+
+	async componentDidMount() {
+		this.getAnuncios();
+	}
+
+	renderContent() {
+		const { anuncios } = this.state;
+
+		if (!anuncios) {
+			return null;
+		}
+
+		return anuncios.map((anuncio) => (
+			<Anuncio key={anuncio._id} anuncio={anuncio} />
+		));
 	}
 
 	render() {
@@ -25,15 +38,9 @@ class AnunciosPage extends React.Component {
 		const { anuncios } = this.state;
 		return (
 			<div>
-				<div className='AnunciosPage'>
-					{anuncios && (
-						<ul>
-							{anuncios.map((anuncio) => (
-								<Anuncio key={anuncio._id} anuncio={anuncio} />
-							))}
-						</ul>
-					)}
-				</div>
+				<Layout>
+					<div className='AnunciosPage'>{this.renderContent()}</div>
+				</Layout>
 			</div>
 		);
 	}

@@ -3,33 +3,31 @@ import styled from 'styled-components';
 const accentColor = 'rgb(29, 161, 242)';
 
 const Button = styled.button`
-	align-items: center;
-	backgroun-color:${(props) =>
-
-			props.variant === 'primary' ? accentColor :
-			'white'}
-	border-radius: 999px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: ${accentColor};
-	color: ${(props) =>
-
-			props.variant === 'primary' ? 'black' :
-			'accentColor'};
-	cursor: pointer;
-	display: inline-flex;
-	font: inherit;
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	width: 80px;
+	height: 30px;
+	font-size: 14px;
 	font-weight: bold;
-	min-height: 36px;
-	justify-content: center;
-	min-width: 72px;
-	outline-style: none;
-	opacity:${(props) =>
-
-			props.disabled ? 'none' :
-			'auto'};
-	padding: 0 30px;
-	text-decoration: none;
-	transition: background-color 0.2s;
+	color: #fff;
+	background-color: #acd6ef; /*IE fallback*/
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(#acd6ef),
+		to(#6ec2e8)
+	);
+	background-image: -moz-linear-gradient(
+		top left 90deg,
+		#acd6ef 0%,
+		#6ec2e8 100%
+	);
+	background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+	border-radius: 30px;
+	border: 1px solid #66add6;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+	cursor: pointer;
 `;
 export default Button;

@@ -31,15 +31,15 @@ class FormInput extends React.Component {
 				)}>
 				<label className='formInput-label'>
 					<span>{label}</span>
-					<input
-						className='formInput-input'
-						{...props}
-						onFocus={this.handleFocus}
-						onBlur={this.handleBlur}
-						autoComplete='off'
-						ref={this.inputRef}
-					/>
 				</label>
+				<input
+					className='formInput-input'
+					{...props}
+					onFocus={this.handleFocus}
+					onBlur={this.handleBlur}
+					autoComplete='off'
+					ref={this.inputRef}
+				/>
 			</div>
 		);
 	}

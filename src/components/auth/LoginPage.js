@@ -4,6 +4,7 @@ import Button from '../shared/Button';
 import FormInput from '../shared/FormInput';
 import { login } from '../../API/auth';
 import T from 'prop-types';
+import Layout from '../layout/Layout';
 
 class LoginPage extends React.Component {
 	state = {
@@ -55,35 +56,39 @@ class LoginPage extends React.Component {
 		const { form: { email, password }, error } = this.state;
 
 		return (
-			<div className='LoginPage'>
-				<h1 className='LoginPage-tittle'>Log in Nodepop</h1>
-				<form onSubmit={this.handleSubmit}>
-					<FormInput
-						name='email'
-						type='text'
-						label='phone, email or username'
-						className='loginPage-field'
-						value={email}
-						onChange={this.handleChange}
-					/>
-					<FormInput
-						name='password'
-						type='password'
-						label='password'
-						value={password}
-						className='loginPage-field'
-						onChange={this.handleChange}
-					/>
-					<Button
-						type='submit'
-						className='loginPage-button'
-						variant='primary'
-						disabled={!this.couldSubmit()}>
-						Log In
-					</Button>
-				</form>
-				{error && <div className='loginPage-error'>{error}</div>}
-			</div>
+			<body>
+				<div className='container'>
+					<h1 className='LoginPage-tittle' />
+					<form onSubmit={this.handleSubmit}>
+						<FormInput
+							name='email'
+							type='text'
+							label='phone, email or username'
+							className='loginPage-field'
+							value={email}
+							onChange={this.handleChange}
+						/>
+						<FormInput
+							name='password'
+							type='password'
+							label='password'
+							value={password}
+							className='loginPage-field'
+							onChange={this.handleChange}
+						/>
+						<div id='lower'>
+							<Button
+								type='submit'
+								className='loginPage-button'
+								variant='primary'
+								disabled={!this.couldSubmit()}>
+								Log In
+							</Button>
+							{error && <div className='loginPage-error'>{error}</div>}
+						</div>
+					</form>
+				</div>
+			</body>
 		);
 	}
 }
