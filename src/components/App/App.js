@@ -2,7 +2,7 @@ import React from 'react';
 import AnunciosPage from '../anuncios/AnunciosPage';
 import LoginPage from '../auth/LoginPage';
 import T from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 	state = {
@@ -17,12 +17,26 @@ class App extends React.Component {
 		// const { loggedUser } = this.state;
 		return (
 			<div className='App'>
-				<Route path='/' exact>
-					<AnunciosPage />
-				</Route>
-				<Route path='/login'>
-					<LoginPage onLogin={this.handleLogin} />
-				</Route>
+				<Switch>
+					<Route path='/' exact component={AnunciosPage} />
+					<Route path='/tweet' exact>
+						Tweet
+					</Route>
+					<Route path='/tweet/:tweetID' exact>
+						Tweet detail
+					</Route>
+					<Route path='/login' exact>
+						{(routeProps) => <LoginPage onLogin={this.handleLogin} />}
+					</Route>
+					<Route path='/404' exact>
+						<div style={{ textAlign: 'center', fontSize: 48, fontWeight: 3 }}>
+							404 Not Found
+						</div>
+					</Route>
+					<Route>
+						<Redirect to='/404' />
+					</Route>
+				</Switch>
 			</div>
 		);
 	}

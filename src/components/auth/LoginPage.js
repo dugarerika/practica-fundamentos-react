@@ -4,7 +4,6 @@ import Button from '../shared/Button';
 import FormInput from '../shared/FormInput';
 import { login } from '../../API/auth';
 import T from 'prop-types';
-import Layout from '../layout/Layout';
 
 class LoginPage extends React.Component {
 	state = {
@@ -58,7 +57,6 @@ class LoginPage extends React.Component {
 		return (
 			<body>
 				<div className='container'>
-					<h1 className='LoginPage-tittle' />
 					<form onSubmit={this.handleSubmit}>
 						<FormInput
 							name='email'

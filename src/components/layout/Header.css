@@ -22,6 +22,14 @@
 	justify-content: flex-end;
 }
 .header-button {
+	align-items: center;
+	align-content: center;
 	width: 144px;
-	margin-left: 10px;
+	margin-left: 100px;
+	padding-top: 5px;
+	padding-left: 20px;
+}
+
+Link {
+	align-items: center;
 }
