@@ -1,13 +1,12 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class NewAnuncioPage extends React.Component {
-	componentDidMount() {}
-
 	render() {
-		const { history, loggerdUser } = this.props;
-		if (loggerdUser) {
-			return;
-		}
+		// const { loggedUser } = this.props;
+		// if (loggedUser === false) {
+		// 	return <Redirect to='/login' />;
+		// }
 		return 'Nueva Pagina de Anuncios';
 	}
 }
