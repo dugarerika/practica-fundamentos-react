@@ -3,7 +3,7 @@ import AnunciosPage from '../anuncios/AnunciosPage';
 import LoginPage from '../auth/LoginPage';
 import T from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
-
+import AnuncioPage from '../anuncios/AnuncioPage';
 class App extends React.Component {
 	state = {
 		loggedUser: this.props.initialLogged
@@ -14,17 +14,15 @@ class App extends React.Component {
 	componentDidMount() {}
 
 	render() {
-		// const { loggedUser } = this.state;
+		const { loggedUser } = this.state;
 		return (
 			<div className='App'>
 				<Switch>
 					<Route path='/' exact component={AnunciosPage} />
-					<Route path='/tweet' exact>
-						Tweet
+					<Route path='/anuncio' exact>
+						Anuncio
 					</Route>
-					<Route path='/tweet/:tweetID' exact>
-						Tweet detail
-					</Route>
+					<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
 					<Route path='/login' exact>
 						{() => <LoginPage onLogin={this.handleLogin} />}
 					</Route>

@@ -9,6 +9,13 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 	<header className={classNames('header', className)} {...props}>
 		<div className='header-logo'>{<Icon width='32' height='32' />}</div>
 		<nav className='header-nav'>
+			<Button
+				as={Link}
+				to='/anuncio'
+				variant='primary'
+				className='header-button'>
+				Anuncio
+			</Button>
 			<Button as={Link} to='/login' className='header-button'>
 				Login
 			</Button>

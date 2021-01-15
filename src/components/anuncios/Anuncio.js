@@ -3,8 +3,10 @@ import Imagen from '../shared/Imagen';
 
 import './Anuncio.css';
 
-const Anuncio = ({ anuncio }) => (
-	<article className='anuncio bordered'>
+const Anuncio = ({ anuncio, history }) => (
+	<article
+		className='anuncio bordered'
+		onClick={() => history.push(`/anuncio/${anuncio._id}`)}>
 		<div className='left'>
 			<Imagen src={anuncio.foto} />
 		</div>

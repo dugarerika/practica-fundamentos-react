@@ -22,6 +22,7 @@ class AnunciosPage extends React.Component {
 	}
 
 	renderContent() {
+		const { history } = this.props;
 		const { anuncios } = this.state;
 
 		if (!anuncios) {
@@ -29,7 +30,7 @@ class AnunciosPage extends React.Component {
 		}
 
 		return anuncios.map((anuncio) => (
-			<Anuncio key={anuncio._id} anuncio={anuncio} />
+			<Anuncio key={anuncio._id} anuncio={anuncio} history={history} />
 		));
 	}
 
