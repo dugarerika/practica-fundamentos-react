@@ -39,7 +39,7 @@ class AnunciosPage extends React.Component {
 		return (
 			<div>
 				<Layout title='NodePop'>
-					<div className='AnunciosPage'>{this.renderContent()}</div>
+					<div className='layout-main'>{this.renderContent()}</div>
 				</Layout>
 			</div>
 		);
