@@ -9,10 +9,13 @@
 	margin-left: 0;
 }
 .layout-main {
-	border-left-width: 1px;
-	border-right-width: 1px;
-	margin: 10px auto;
-	max-width: 660px;
+	text-align: center;
+	display: inline-block;
+	align-items: center;
+	align-self: center;
+	background-color: #ffffff;
+	max-width: 1232px;
+	box-sizing: content-box;
 	min-height: calc(100vh - 128px);
 }
 .layout-title {

@@ -26,7 +26,7 @@ class App extends React.Component {
 						Tweet detail
 					</Route>
 					<Route path='/login' exact>
-						{(routeProps) => <LoginPage onLogin={this.handleLogin} />}
+						{() => <LoginPage onLogin={this.handleLogin} />}
 					</Route>
 					<Route path='/404' exact>
 						<div style={{ textAlign: 'center', fontSize: 48, fontWeight: 3 }}>
