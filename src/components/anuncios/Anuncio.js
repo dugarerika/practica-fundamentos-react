@@ -1,5 +1,6 @@
 import React from 'react';
 import Imagen from '../shared/Imagen';
+import T from 'prop-types';
 
 import './Anuncio.css';
 
@@ -27,5 +28,9 @@ const Anuncio = ({ anuncio, history }) => (
 		</div>
 	</article>
 );
+
+Anuncio.propTypes = {
+	history: T.shape({ push: T.func.isRequired }).isRequired
+};
 
 export default Anuncio;

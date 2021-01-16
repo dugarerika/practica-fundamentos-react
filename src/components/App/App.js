@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import AnuncioPage from '../anuncios/AnuncioPage';
 import NewAnuncioPage from '../anuncios/NewAnuncioPage';
 import ProtectedRoute from '../auth/ProtectedRouter';
+
 class App extends React.Component {
 	anunciosPageRef = React.createRef();
 	loginPageRef = React.createRef();
@@ -13,6 +14,7 @@ class App extends React.Component {
 		loggedUser: this.props.initialLogged
 	};
 
+	handleLogout = () => this.state({ loggedUser: false });
 	handleLogin = (loggedUser, cb) => this.setState({ loggedUser }, cb);
 
 	componentDidMount() {}
@@ -23,7 +25,13 @@ class App extends React.Component {
 			<div className='App'>
 				<Switch>
 					<Route path='/' exact>
-						<AnunciosPage isLogged={loggedUser} />
+						{({ history }) => (
+							<AnunciosPage
+								isLogged={loggedUser}
+								onLogout={this.handleLogout}
+								history={history}
+							/>
+						)}
 					</Route>
 					<ProtectedRoute path='/anuncio' exact isLogged={loggedUser}>
 						<NewAnuncioPage />

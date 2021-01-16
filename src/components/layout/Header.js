@@ -4,6 +4,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import Button from '../shared/Button';
 import { ReactComponent as Icon } from '../images/shopping-cart.svg';
+import { logout } from '../../API/auth';
 
 const Header = ({ className, isLogged, onLogout, ...props }) => (
 	<header className={classNames('header', className)} {...props}>
@@ -17,7 +18,11 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 				Anuncio
 			</Button>
 			{
-				isLogged ? <Button as={Link} className='header-button'>
+				isLogged ? <Button
+					as={Link}
+					to='/login'
+					className='header-button'
+					onClick={() => logout(onLogout)}>
 					Logout
 				</Button> :
 				<Button as={Link} to='/login' className='header-button'>

@@ -13,10 +13,21 @@ const client = axios.create({
 const setAuthorizationHeader = (token) => {
 	client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
+
+const removeAuthorizationHeader = (token) => {
+	delete client.defaults.headers.common['Authorization'];
+};
+
 client.login = (credentials) =>
 	client.post('/apiv1/auth/login', credentials).then((auth) => {
 		setAuthorizationHeader(auth.token);
 		return auth;
+	});
+
+client.logout = () =>
+	new Promise((resolve) => {
+		removeAuthorizationHeader();
+		resolve();
 	});
 
 export const configuraClient = (accessToken) => {
