@@ -16,9 +16,13 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 				className='header-button'>
 				Anuncio
 			</Button>
-			<Button as={Link} to='/login' className='header-button'>
-				Login
-			</Button>
+			{
+				isLogged ? <Button as={Link} className='header-button'>
+					Logout
+				</Button> :
+				<Button as={Link} to='/login' className='header-button'>
+					Login
+				</Button>}
 		</nav>
 	</header>
 );

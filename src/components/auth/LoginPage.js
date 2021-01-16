@@ -28,8 +28,7 @@ class LoginPage extends React.Component {
 			console.log(loggedUser);
 			this.setState({ submmiting: false, error: null });
 			if (info.ok === false) throw info.error;
-			onLogin(loggedUser);
-			history.push('/anuncio');
+			onLogin(loggedUser, () => history.push('/anuncio'));
 		} catch (error) {
 			console.log('memandaron al error');
 			this.setState({ submmiting: false, error });
@@ -56,38 +55,36 @@ class LoginPage extends React.Component {
 		const { form: { email, password }, error } = this.state;
 
 		return (
-			<body>
-				<div className='container'>
-					<form onSubmit={this.handleSubmit}>
-						<FormInput
-							name='email'
-							type='text'
-							label='phone, email or username'
-							className='loginPage-field'
-							value={email}
-							onChange={this.handleChange}
-						/>
-						<FormInput
-							name='password'
-							type='password'
-							label='password'
-							value={password}
-							className='loginPage-field'
-							onChange={this.handleChange}
-						/>
-						<div id='lower'>
-							<Button
-								type='submit'
-								className='loginPage-button'
-								variant='primary'
-								disabled={!this.couldSubmit()}>
-								Log In
-							</Button>
-							{error && <div className='loginPage-error'>{error}</div>}
-						</div>
-					</form>
-				</div>
-			</body>
+			<div className='container'>
+				<form onSubmit={this.handleSubmit}>
+					<FormInput
+						name='email'
+						type='text'
+						label='phone, email or username'
+						className='loginPage-field'
+						value={email}
+						onChange={this.handleChange}
+					/>
+					<FormInput
+						name='password'
+						type='password'
+						label='password'
+						value={password}
+						className='loginPage-field'
+						onChange={this.handleChange}
+					/>
+					<div id='lower'>
+						<Button
+							type='submit'
+							className='loginPage-button'
+							variant='primary'
+							disabled={!this.couldSubmit()}>
+							Log In
+						</Button>
+						{error && <div className='loginPage-error'>{error}</div>}
+					</div>
+				</form>
+			</div>
 		);
 	}
 }

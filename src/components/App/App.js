@@ -13,7 +13,7 @@ class App extends React.Component {
 		loggedUser: this.props.initialLogged
 	};
 
-	handleLogin = (loggedUser) => this.setState({ loggedUser });
+	handleLogin = (loggedUser, cb) => this.setState({ loggedUser }, cb);
 
 	componentDidMount() {}
 
@@ -22,8 +22,10 @@ class App extends React.Component {
 		return (
 			<div className='App'>
 				<Switch>
-					<Route path='/' exact component={AnunciosPage} />
-					<ProtectedRoute path='/anuncio' exact islogged={loggedUser}>
+					<Route path='/' exact>
+						<AnunciosPage isLogged={loggedUser} />
+					</Route>
+					<ProtectedRoute path='/anuncio' exact isLogged={loggedUser}>
 						<NewAnuncioPage />
 					</ProtectedRoute>
 					<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />

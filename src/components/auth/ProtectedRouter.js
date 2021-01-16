@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-const ProtectedRouter = ({ islogged, ...props }) =>
+const ProtectedRouter = ({ isLogged, ...props }) =>
 
-		islogged ? <Route {...props} /> :
+		isLogged ? <Route {...props} /> :
 		<Redirect to='/login' />;
 
 export default ProtectedRouter;

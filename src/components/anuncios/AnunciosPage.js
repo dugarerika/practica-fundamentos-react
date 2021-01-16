@@ -36,13 +36,10 @@ class AnunciosPage extends React.Component {
 
 	render() {
 		console.log(this.state);
-
 		return (
-			<div>
-				<Layout title='NodePop'>
-					<div className='layout-main'>{this.renderContent()}</div>
-				</Layout>
-			</div>
+			<Layout title='NodePop' {...this.props}>
+				<div className='layout-main'>{this.renderContent()}</div>
+			</Layout>
 		);
 	}
 }
