@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../shared/Button';
 import { ReactComponent as Icon } from '../images/shopping-cart.svg';
 import { logout } from '../../API/auth';
+import { AuthContext } from '../App/App';
 
 const Header = ({ className, isLogged, onLogout, ...props }) => (
 	<header className={classNames('header', className)} {...props}>
@@ -31,4 +32,12 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 		</nav>
 	</header>
 );
-export default Header;
+
+const ConnectedToAuthHeader = (props) => (
+	<AuthContext.Consumer>
+		{({ isLogged, onLogout }) => (
+			<Header {...props} isLogged={isLogged} onLogout={onLogout} />
+		)}
+	</AuthContext.Consumer>
+);
+export default ConnectedToAuthHeader;

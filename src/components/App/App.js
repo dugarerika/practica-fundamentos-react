@@ -7,6 +7,8 @@ import AnuncioPage from '../anuncios/AnuncioPage';
 import NewAnuncioPage from '../anuncios/NewAnuncioPage';
 import ProtectedRoute from '../auth/ProtectedRouter';
 
+export const AuthContext = React.createContext();
+
 class App extends React.Component {
 	anunciosPageRef = React.createRef();
 	loginPageRef = React.createRef();
@@ -22,36 +24,43 @@ class App extends React.Component {
 	render() {
 		const { loggedUser } = this.state;
 		return (
-			<div className='App'>
-				<Switch>
-					<Route path='/' exact>
-						{({ history }) => (
-							<AnunciosPage
-								isLogged={loggedUser}
-								onLogout={this.handleLogout}
-								history={history}
-							/>
-						)}
-					</Route>
-					<ProtectedRoute path='/anuncio' exact isLogged={loggedUser}>
-						<NewAnuncioPage />
-					</ProtectedRoute>
-					<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
-					<Route path='/login' exact>
-						{({ history }) => (
-							<LoginPage onLogin={this.handleLogin} history={history} />
-						)}
-					</Route>
-					<Route path='/404' exact>
-						<div style={{ textAlign: 'center', fontSize: 48, fontWeight: 3 }}>
-							404 Not Found
-						</div>
-					</Route>
-					<Route>
-						<Redirect to='/404' />
-					</Route>
-				</Switch>
-			</div>
+			<AuthContext.Provider
+				value={{
+					isLogged: loggedUser,
+					onLogin: this.handleLogin,
+					onLogout: this.handleLogout
+				}}>
+				<div className='App'>
+					<Switch>
+						<Route path='/' exact>
+							{({ history }) => (
+								<AnunciosPage
+									isLogged={loggedUser}
+									onLogout={this.handleLogout}
+									history={history}
+								/>
+							)}
+						</Route>
+						<ProtectedRoute path='/anuncio' exact isLogged={loggedUser}>
+							<NewAnuncioPage />
+						</ProtectedRoute>
+						<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
+						<Route path='/login' exact>
+							{({ history }) => (
+								<LoginPage onLogin={this.handleLogin} history={history} />
+							)}
+						</Route>
+						<Route path='/404' exact>
+							<div style={{ textAlign: 'center', fontSize: 48, fontWeight: 3 }}>
+								404 Not Found
+							</div>
+						</Route>
+						<Route>
+							<Redirect to='/404' />
+						</Route>
+					</Switch>
+				</div>
+			</AuthContext.Provider>
 		);
 	}
 }

@@ -36,9 +36,8 @@ class AnunciosPage extends React.Component {
 
 	render() {
 		console.log(this.state);
-		const { isLogged } = this.props;
 		return (
-			<Layout title='NodePop' isLogged={isLogged} {...this.props}>
+			<Layout title='NodePop'>
 				<div className='AnunciosPage'>{this.renderContent()}</div>
 			</Layout>
 		);
