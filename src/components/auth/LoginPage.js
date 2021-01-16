@@ -16,7 +16,7 @@ class LoginPage extends React.Component {
 	};
 
 	handleSubmit = async (event) => {
-		const { onLogin } = this.props;
+		const { onLogin, history } = this.props;
 		const { form: credentials } = this.state;
 		event.preventDefault();
 		console.log(event);
@@ -29,6 +29,7 @@ class LoginPage extends React.Component {
 			this.setState({ submmiting: false, error: null });
 			if (info.ok === false) throw info.error;
 			onLogin(loggedUser);
+			history.push('/anuncio');
 		} catch (error) {
 			console.log('memandaron al error');
 			this.setState({ submmiting: false, error });

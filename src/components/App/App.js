@@ -28,7 +28,9 @@ class App extends React.Component {
 					</ProtectedRoute>
 					<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
 					<Route path='/login' exact>
-						{() => <LoginPage onLogin={this.handleLogin} />}
+						{({ history }) => (
+							<LoginPage onLogin={this.handleLogin} history={history} />
+						)}
 					</Route>
 					<Route path='/404' exact>
 						<div style={{ textAlign: 'center', fontSize: 48, fontWeight: 3 }}>
