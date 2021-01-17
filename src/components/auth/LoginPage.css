@@ -102,24 +102,9 @@ body {
 }
 
 #lower {
-	/* position: fixed;
-	background: #ecf2f5;
 	width: 340px;
 	height: 69px;
 	margin-top: 70px;
-	margin-bottom: 0px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-	border-top: 1px solid #ccc;
-	border-bottom-right-radius: 3px;
-	border-bottom-left-radius: 3px;
-	border-radius: 3px;
-	border: 1px solid #ccc; */
-
-	position: fixed;
-	width: 340px;
-	height: 69px;
-	margin-top: 70px;
-	margin-bottom: 0px;
 	background: #ecf2f5;
 
 	border-radius: 3px;

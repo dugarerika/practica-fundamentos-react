@@ -38,3 +38,59 @@
 .layout-footer {
 	padding: 10px 15px;
 }
+
+.form-new-anuncio {
+	text-align: center;
+	display: inline-flexbox;
+	align-items: center;
+	align-self: center;
+	width: 340px;
+	height: 500px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.input-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 10px;
+	margin-top: 12px;
+	margin-left: 18px;
+	width: 270px;
+	height: 35px;
+}
+
+#loweranuncio {
+	width: 340px;
+	height: 69px;
+	margin-top: 89px;
+	margin-bottom: 0px;
+	background: #ecf2f5;
+
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+}
