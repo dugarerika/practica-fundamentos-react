@@ -36,6 +36,18 @@ export const configuraClient = (accessToken) => {
 	}
 };
 
-client.interceptors.response.use((response) => response.data);
+client.interceptors.response.use(
+	(response) => response.data,
+	(error) => {
+		console.log(error);
+		if (!error.response) {
+			return Promise.reject({ message: error.message });
+		}
+		return Promise.reject({
+			message: error.response.statusText,
+			...error.response.data
+		});
+	}
+);
 
 export default client;

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../shared/Button';
 import { ReactComponent as Icon } from '../images/shopping-cart.svg';
 import { logout } from '../../API/auth';
-import { AuthContext } from '../App/App';
+import { AuthContextConsumer } from '../auth/context';
 
 const Header = ({ className, isLogged, onLogout, ...props }) => (
 	<header className={classNames('header', className)} {...props}>
@@ -34,10 +34,10 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 );
 
 const ConnectedToAuthHeader = (props) => (
-	<AuthContext.Consumer>
+	<AuthContextConsumer>
 		{({ isLogged, onLogout }) => (
 			<Header {...props} isLogged={isLogged} onLogout={onLogout} />
 		)}
-	</AuthContext.Consumer>
+	</AuthContextConsumer>
 );
 export default ConnectedToAuthHeader;

@@ -6,8 +6,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import AnuncioPage from '../anuncios/AnuncioPage';
 import NewAnuncioPage from '../anuncios/NewAnuncioPage';
 import ProtectedRoute from '../auth/ProtectedRouter';
-
-export const AuthContext = React.createContext();
+import { AuthContextProvider } from '../auth/context';
 
 class App extends React.Component {
 	anunciosPageRef = React.createRef();
@@ -24,7 +23,7 @@ class App extends React.Component {
 	render() {
 		const { loggedUser } = this.state;
 		return (
-			<AuthContext.Provider
+			<AuthContextProvider
 				value={{
 					isLogged: loggedUser,
 					onLogin: this.handleLogin,
@@ -41,7 +40,7 @@ class App extends React.Component {
 								/>
 							)}
 						</Route>
-						<ProtectedRoute path='/anuncio' exact isLogged={loggedUser}>
+						<ProtectedRoute path='/anuncio' exact>
 							<NewAnuncioPage />
 						</ProtectedRoute>
 						<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
@@ -60,7 +59,7 @@ class App extends React.Component {
 						</Route>
 					</Switch>
 				</div>
-			</AuthContext.Provider>
+			</AuthContextProvider>
 		);
 	}
 }
