@@ -2,6 +2,9 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { getDetalleAnuncio } from '../../API/anuncios';
 import Layout from '../layout/Layout';
+import Anuncio from '../anuncios/Anuncio';
+import Imagen from '../shared/Imagen';
+import './Anuncio.css';
 
 class AnuncioPage extends React.Component {
 	state = {
@@ -21,6 +24,7 @@ class AnuncioPage extends React.Component {
 	}
 
 	renderContent() {
+		const { history } = this.props;
 		const { anuncio, error } = this.state;
 		if (error) {
 			return <Redirect to='/404' />;
@@ -28,7 +32,14 @@ class AnuncioPage extends React.Component {
 		if (!anuncio) {
 			return null;
 		}
-		return JSON.stringify(anuncio.result);
+		return (
+			<div>
+				<div className='left'>
+					<Imagen src={anuncio.result.foto} />
+				</div>
+				<Anuncio key={anuncio._id} anuncio={anuncio.result} history={history} />
+			</div>
+		);
 	}
 
 	render() {

@@ -18,6 +18,7 @@ const removeAuthorizationHeader = (token) => {
 	delete client.defaults.headers.common['Authorization'];
 };
 
+// this methods
 client.login = (credentials) =>
 	client.post('/apiv1/auth/login', credentials).then((auth) => {
 		setAuthorizationHeader(auth.token);
@@ -25,6 +26,12 @@ client.login = (credentials) =>
 	});
 
 client.logout = () =>
+	new Promise((resolve) => {
+		removeAuthorizationHeader();
+		resolve();
+	});
+
+client.create = () =>
 	new Promise((resolve) => {
 		removeAuthorizationHeader();
 		resolve();

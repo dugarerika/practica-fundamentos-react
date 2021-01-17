@@ -1,5 +1,4 @@
 import React from 'react';
-import Imagen from '../shared/Imagen';
 import T from 'prop-types';
 
 import './Anuncio.css';
@@ -8,9 +7,6 @@ const Anuncio = ({ anuncio, history }) => (
 	<article
 		className='anuncio bordered'
 		onClick={() => history.push(`/anuncio/${anuncio._id}`)}>
-		<div className='left'>
-			<Imagen src={anuncio.foto} />
-		</div>
 		<div className='right'>
 			<div className='anuncio-cabecera'>
 				<span className='anuncio-nombre'>{anuncio.nombre}</span>
@@ -30,6 +26,7 @@ const Anuncio = ({ anuncio, history }) => (
 );
 
 Anuncio.propTypes = {
+	anuncio: T.string,
 	history: T.shape({ push: T.func.isRequired }).isRequired
 };
 

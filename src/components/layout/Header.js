@@ -16,7 +16,7 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 				to='/anuncio'
 				variant='primary'
 				className='header-button'>
-				Anuncio
+				Nuevo Anuncio
 			</Button>
 			{
 				isLogged ? <Button
