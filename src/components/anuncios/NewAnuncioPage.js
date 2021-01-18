@@ -1,25 +1,32 @@
 import React from 'react';
 import Layout from '../layout';
 import { AnuncioInput, Button } from '../shared/index';
+import { createAnuncio } from '../../API/anuncios';
 
 class NewAnuncioPage extends React.Component {
 	state = {
 		form: {
-			nombre: '',
-			compraventa: '',
-			tags: '',
-			precio: ''
-		},
-		submmiting: false,
-		error: null
+			name: '',
+			price: '',
+			tag: [],
+			sale: false,
+			photo: 'foto.png'
+		}
 	};
 
 	handleSubmit = async (event) => {
+		const { form: credentials } = this.state;
+		event.preventDefault();
+		console.log(event);
 		try {
-		} catch (error) {}
+			const createdAnuncio = await createAnuncio(credentials);
+			console.log(createdAnuncio);
+		} catch (error) {
+			console.log('memandaron al error');
+		}
 	};
 
-	handleChange = (event) => {
+	handleChange = async (event) => {
 		console.log(event.target.value);
 		this.setState((state) => ({
 			form: { ...state.form, [event.target.name]: event.target.value }
@@ -27,46 +34,52 @@ class NewAnuncioPage extends React.Component {
 	};
 
 	couldSubmit = () => {
-		const { form: { nombre, compraventa, tags, precio } } = this.state;
-		return nombre && compraventa && tags && precio;
+		const { form: { name, price, tags, sale, photo } } = this.state;
+		return name && price && tags && sale && photo;
 	};
 
 	render() {
-		const { form: { nombre, compraventa, tags, precio } } = this.state;
+		const { form: { name, price, sale, tags, photo } } = this.state;
 		return (
 			<Layout title='Crea un nuevo anuncio'>
-				<div>
-					<form className='form-new-anuncio'>
+				<div className='form-new-anuncio'>
+					<form onSubmit={this.handleSubmit}>
 						<AnuncioInput
 							className='input-new-anuncio'
-							name='nombre'
+							name='name'
 							type='text'
 							label='Nombre'
-							value={nombre}
+							value={name}
 							onChange={this.handleChange}
 						/>
-						<AnuncioInput
-							className='input-new-anuncio'
-							name='compra-venta'
-							type='text'
-							label='Compra/Venta'
-							value={compraventa}
-							onChange={this.handleChange}
-						/>
+						<div
+							className='radio-input-new-anuncio'
+							onChange={this.handleChange}>
+							<input type='radio' value={false} name='sale' /> Compra
+							<input type='radio' value={true} name='sale' /> Venta
+						</div>
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='tags'
 							type='text'
-							label='tags'
+							label='Tags'
 							value={tags}
 							onChange={this.handleChange}
 						/>
 						<AnuncioInput
 							className='input-new-anuncio'
-							name='precio'
+							name='photo'
 							type='text'
+							label='Foto'
+							value={photo}
+							onChange={this.handleChange}
+						/>
+						<AnuncioInput
+							className='input-new-anuncio'
+							name='price'
+							type='number'
 							label='precio'
-							value={precio}
+							value={price}
 							onChange={this.handleChange}
 						/>
 						<div id='loweranuncio'>

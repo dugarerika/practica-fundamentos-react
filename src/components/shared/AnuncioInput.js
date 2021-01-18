@@ -3,7 +3,6 @@ import T from 'prop-types';
 import classNames from 'classnames';
 
 class AnuncioInput extends React.Component {
-	inputRef = React.createRef();
 	state = { focus: false };
 	handleFocus = (ev) => {
 		const { onFocus } = this.props;
@@ -15,9 +14,7 @@ class AnuncioInput extends React.Component {
 		this.setState({ focus: false });
 		if (onBlur) onBlur(ev);
 	};
-	componentDidMount() {
-		this.inputRef.current.focus();
-	}
+
 	render() {
 		const { className, label, ...props } = this.props;
 		const { focus } = this.state;
@@ -37,7 +34,6 @@ class AnuncioInput extends React.Component {
 					onFocus={this.handleFocus}
 					onBlur={this.handleBlur}
 					autoComplete='off'
-					ref={this.inputRef}
 				/>
 			</div>
 		);

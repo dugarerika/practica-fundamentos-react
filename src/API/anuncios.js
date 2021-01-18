@@ -11,3 +11,8 @@ export const getDetalleAnuncio = (anuncioID) => {
 	const url = `${anuncioBaseUrl}/adverts/${anuncioID}`;
 	return client.get(url);
 };
+
+export const createAnuncio = (anuncio) => {
+	const url = `${anuncioBaseUrl}/adverts`;
+	return client.post(url, anuncio);
+};
