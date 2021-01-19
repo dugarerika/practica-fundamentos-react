@@ -109,3 +109,18 @@
 	width: 270px;
 	height: 0px;
 }
+
+.checkbox-input-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 50px;
+	margin-left: 18px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	width: 270px;
+	height: 0px;
+}

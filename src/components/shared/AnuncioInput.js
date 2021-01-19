@@ -3,7 +3,12 @@ import T from 'prop-types';
 import classNames from 'classnames';
 
 class AnuncioInput extends React.Component {
-	state = { focus: false };
+	state = {
+		focus: false,
+		value: '',
+		selected: false
+	};
+
 	handleFocus = (ev) => {
 		const { onFocus } = this.props;
 		this.setState({ focus: true });
