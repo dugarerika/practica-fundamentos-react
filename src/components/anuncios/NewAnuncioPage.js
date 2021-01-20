@@ -98,6 +98,7 @@ class NewAnuncioPage extends React.Component {
 							className='input-new-anuncio'
 							name='price'
 							type='number'
+							label={price}
 							value={price}
 							onChange={this.handleChange}
 						/>
