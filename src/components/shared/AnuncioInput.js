@@ -40,6 +40,7 @@ class AnuncioInput extends React.Component {
 					onBlur={this.handleBlur}
 					autoComplete='off'
 					label={label}
+					value={label}
 				/>
 			</div>
 		);

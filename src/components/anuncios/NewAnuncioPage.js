@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../layout';
 import { AnuncioInput, Button } from '../shared/index';
 import { createAnuncio } from '../../API/anuncios';
-import FormCheckboxes from '../shared/FormCheckboxes';
 
 class NewAnuncioPage extends React.Component {
 	state = {
@@ -27,31 +26,33 @@ class NewAnuncioPage extends React.Component {
 		}
 	};
 
+	handleCheck = (event) => {
+		console.log(event.target);
+		const { form: { tags } } = this.state;
+		const target = event.target;
+		const value = target.value;
+		this.setState((state) => ({
+			form: { ...state.form, tags: tags.concat(value) }
+		}));
+	};
+
 	handleChange = async (event) => {
 		console.log(event.target);
 		const target = event.target;
-		const value =
-
-				target.type === 'checkbox' ? target.name :
-				target.value;
+		const value = target.value;
 		const name = target.name;
 		this.setState((state) => ({
 			form: { ...state.form, [name]: value }
 		}));
 	};
 
-	handleName = () => {
-		const { form: { name, price, sale, tags, photo } } = this.state;
-		return name && price && sale && photo;
-	};
-
 	couldSubmit = () => {
-		const { form: { name, price, sale, tags, photo } } = this.state;
+		const { form: { name, price, sale, photo } } = this.state;
 		return name && price && sale && photo;
 	};
 
 	render() {
-		const { form: { name, price, sale, tags, photo } } = this.state;
+		const { form: { name, price, tags, photo } } = this.state;
 		return (
 			<Layout title='Crea un nuevo anuncio'>
 				<div className='form-new-anuncio'>
@@ -60,7 +61,6 @@ class NewAnuncioPage extends React.Component {
 							className='input-new-anuncio'
 							name='name'
 							type='text'
-							label='Nombre'
 							value={name}
 							onChange={this.handleChange}
 						/>
@@ -76,7 +76,15 @@ class NewAnuncioPage extends React.Component {
 							type='checkbox'
 							label='tecnologia'
 							value={tags}
-							onChange={this.handleChange}
+							onChange={this.handleCheck}
+						/>
+						<AnuncioInput
+							className='input-new-anuncio'
+							name='tags'
+							type='checkbox'
+							label='Ropa'
+							value={tags}
+							onChange={this.handleCheck}
 						/>
 						<AnuncioInput
 							className='input-new-anuncio'
@@ -90,7 +98,6 @@ class NewAnuncioPage extends React.Component {
 							className='input-new-anuncio'
 							name='price'
 							type='number'
-							label='precio'
 							value={price}
 							onChange={this.handleChange}
 						/>
