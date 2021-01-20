@@ -31,9 +31,12 @@ class NewAnuncioPage extends React.Component {
 		const { form: { tags } } = this.state;
 		const target = event.target;
 		const value = target.value;
-		this.setState((state) => ({
-			form: { ...state.form, tags: tags.concat(value) }
-		}));
+		console.log(target.checked);
+		if (target.checked) {
+			this.setState((state) => ({
+				form: { ...state.form, tags: tags.concat(value) }
+			}));
+		}
 	};
 
 	handleChange = async (event) => {
