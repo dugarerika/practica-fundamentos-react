@@ -4,17 +4,14 @@ import './FormInput.css';
 
 class FormCheckboxes extends React.Component {
 	state = {
-		info: true
+		info: false
 	};
 
 	handleChange = (event) => {
-		console.log(event.target.name);
 		const target = event.target;
 		const value = target.checked;
 		const name = target.name;
 		this.setState({ [name]: value });
-		console.log(value);
-		console.log(name);
 	};
 
 	render() {

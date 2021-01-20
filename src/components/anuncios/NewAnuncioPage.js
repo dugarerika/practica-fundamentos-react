@@ -32,7 +32,7 @@ class NewAnuncioPage extends React.Component {
 		const target = event.target;
 		const value =
 
-				target.type === 'checkbox' ? target.checked :
+				target.type === 'checkbox' ? target.name :
 				target.value;
 		const name = target.name;
 		this.setState((state) => ({
@@ -40,13 +40,18 @@ class NewAnuncioPage extends React.Component {
 		}));
 	};
 
+	handleName = () => {
+		const { form: { name, price, sale, tags, photo } } = this.state;
+		return name && price && sale && photo;
+	};
+
 	couldSubmit = () => {
-		const { form: { name, price, sale, photo } } = this.state;
+		const { form: { name, price, sale, tags, photo } } = this.state;
 		return name && price && sale && photo;
 	};
 
 	render() {
-		const { form: { name, price, sale, photo, tags } } = this.state;
+		const { form: { name, price, sale, tags, photo } } = this.state;
 		return (
 			<Layout title='Crea un nuevo anuncio'>
 				<div className='form-new-anuncio'>
@@ -65,14 +70,14 @@ class NewAnuncioPage extends React.Component {
 							<input type='radio' value={false} name='sale' /> Compra
 							<input type='radio' value={true} name='sale' /> Venta
 						</div>
-						<div className='checkbox-input-new-anuncio'>
-							<FormCheckboxes
-								name={tags}
-								label={tags}
-								checked={this.state.tags}
-							/>
-							{tags}
-						</div>
+						<AnuncioInput
+							className='input-new-anuncio'
+							name='tags'
+							type='checkbox'
+							label='tecnologia'
+							value={tags}
+							onChange={this.handleChange}
+						/>
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='photo'
