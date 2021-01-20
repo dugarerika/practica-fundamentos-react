@@ -60,6 +60,7 @@ class NewAnuncioPage extends React.Component {
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='name'
+							label='name'
 							type='text'
 							value={name}
 							onChange={this.handleChange}
@@ -75,7 +76,7 @@ class NewAnuncioPage extends React.Component {
 							name='tags'
 							type='checkbox'
 							label='tecnologia'
-							value={tags}
+							value='tecnologia'
 							onChange={this.handleCheck}
 						/>
 						<AnuncioInput
@@ -83,7 +84,7 @@ class NewAnuncioPage extends React.Component {
 							name='tags'
 							type='checkbox'
 							label='Ropa'
-							value={tags}
+							value='Ropa'
 							onChange={this.handleCheck}
 						/>
 						<AnuncioInput
@@ -98,7 +99,7 @@ class NewAnuncioPage extends React.Component {
 							className='input-new-anuncio'
 							name='price'
 							type='number'
-							label={price}
+							label='price'
 							value={price}
 							onChange={this.handleChange}
 						/>
