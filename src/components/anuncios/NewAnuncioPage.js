@@ -37,6 +37,15 @@ class NewAnuncioPage extends React.Component {
 				form: { ...state.form, tags: tags.concat(value) }
 			}));
 		}
+		else {
+			console.log(tags);
+			const id = tags.indexOf(value);
+			console.log(id);
+			this.setState((state) => ({
+				form: { ...state.form, tags: tags.filter((item) => item !== value) }
+			}));
+		}
+		console.log(tags);
 	};
 
 	handleChange = async (event) => {
@@ -55,7 +64,7 @@ class NewAnuncioPage extends React.Component {
 	};
 
 	render() {
-		const { form: { name, price, tags, photo } } = this.state;
+		const { form: { name, price, photo } } = this.state;
 		return (
 			<Layout title='Crea un nuevo anuncio'>
 				<div className='form-new-anuncio'>
@@ -74,22 +83,37 @@ class NewAnuncioPage extends React.Component {
 							<input type='radio' value={false} name='sale' /> Compra
 							<input type='radio' value={true} name='sale' /> Venta
 						</div>
-						<AnuncioInput
-							className='input-new-anuncio'
-							name='tags'
-							type='checkbox'
-							label='tecnologia'
-							value='tecnologia'
-							onChange={this.handleCheck}
-						/>
-						<AnuncioInput
-							className='input-new-anuncio'
-							name='tags'
-							type='checkbox'
-							label='Ropa'
-							value='Ropa'
-							onChange={this.handleCheck}
-						/>
+						<div>
+							<AnuncioInput
+								name='tags'
+								type='checkbox'
+								label='tecnologia'
+								value='tecnologia'
+								onChange={this.handleCheck}
+							/>
+							<AnuncioInput
+								name='tags'
+								type='checkbox'
+								label='Ropa'
+								value='Ropa'
+								onChange={this.handleCheck}
+							/>
+							<AnuncioInput
+								name='tags'
+								type='checkbox'
+								label='Sports'
+								value='Sports'
+								onChange={this.handleCheck}
+							/>
+							<AnuncioInput
+								name='tags'
+								type='checkbox'
+								label='Celulares'
+								value='Celulares'
+								onChange={this.handleCheck}
+							/>
+						</div>
+
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='photo'
