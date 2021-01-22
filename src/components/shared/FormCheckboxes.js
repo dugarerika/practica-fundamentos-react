@@ -1,42 +1,36 @@
 import React from 'react';
-import T, { checkPropTypes } from 'prop-types';
-import './FormInput.css';
 
 class FormCheckboxes extends React.Component {
 	state = {
-		info: false
-	};
-
-	handleChange = (event) => {
-		const target = event.target;
-		const value = target.checked;
-		const name = target.name;
-		this.setState({ [name]: value });
+		infoTags: [
+			{ id: 1, value: 'PHP' },
+			{ id: 2, value: 'Laravel' },
+			{ id: 3, value: 'Angular' },
+			{ id: 4, value: 'React' }
+		]
 	};
 
 	render() {
-		const { label } = this.props;
-
+		const { label, value, name, type, ...props } = this.props;
+		const { infoTags } = this.state;
 		return (
 			<div>
-				<label>
-					<input
-						name='info'
-						type='checkbox'
-						checked={this.state.info}
-						onChange={this.handleChange}
-					/>
-					{label}
-				</label>
+				{infoTags.map((item) => (
+					<label>
+						s
+						<input
+							{...props}
+							type='checkbox'
+							name='tags'
+							label={item.value}
+							value={item.value}
+						/>
+						{item.value}
+					</label>
+				))}
 			</div>
 		);
 	}
 }
-
-FormCheckboxes.propTypes = {
-	className: T.string,
-	name: T.string.isRequired,
-	checked: T.bool
-};
 
 export default FormCheckboxes;

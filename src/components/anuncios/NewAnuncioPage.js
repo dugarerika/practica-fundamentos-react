@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../layout';
-import { AnuncioInput, Button } from '../shared/index';
+import { AnuncioInput, Button, FormCheckboxes } from '../shared/index';
 import { createAnuncio } from '../../API/anuncios';
 
 class NewAnuncioPage extends React.Component {
