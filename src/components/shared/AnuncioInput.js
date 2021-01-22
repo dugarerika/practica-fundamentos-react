@@ -1,6 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
+import './FormInput.css';
 
 class AnuncioInput extends React.Component {
 	state = {
@@ -24,12 +25,7 @@ class AnuncioInput extends React.Component {
 		const { className, label, ...props } = this.props;
 		const { focus } = this.state;
 		return (
-			<div
-				className={classNames(
-					'formInput',
-					{ 'formInput--focused': focus },
-					className
-				)}>
+			<div className={classNames({ 'formInput--focused': focus }, className)}>
 				<label className='formInput-label'>
 					<span>{label}</span>
 				</label>

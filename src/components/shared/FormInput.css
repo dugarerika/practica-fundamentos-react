@@ -52,3 +52,139 @@
 span {
 	background-color: transparent;
 }
+
+.form-new-anuncio {
+	text-align: center;
+	display: inline-flexbox;
+	align-items: center;
+	align-self: center;
+	width: 340px;
+	height: 500px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.input-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 0px;
+	margin-left: 18px;
+	width: 270px;
+	height: 30px;
+}
+
+#loweranuncio {
+	width: 340px;
+	height: 69px;
+	margin-top: 89px;
+	margin-bottom: 0px;
+	background: #ecf2f5;
+
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+}
+
+.radio-input-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 15px;
+	margin-top: 50px;
+	margin-left: 18px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	width: 270px;
+	height: 0px;
+}
+
+.checkboxs-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 80px;
+	margin-left: 18px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	width: 270px;
+	height: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-content: space-around;
+}
+
+.checkbox-input-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+
+	/* padding-left: 10px; */
+	/* margin: 15px; */
+	margin-top: 5px;
+	/* margin-left: 18px; */
+	/* /* margin-bottom: 0px; 
+	border-bottom: 0px; */
+	width: 27px;
+	/* height: 0px; */
+}
+
+.new-anuncio {
+	display: inline-grid;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-content: space-around;
+}
+
+.Currencyinput-new-anuncio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 20px;
+	outline: none;
+	color: #777;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 0px;
+	margin-left: 18px;
+	width: 100px;
+	height: 30px;
+}
+.currency {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+	color: none;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 0px;
+	margin-left: 18px;
+	width: 270px;
+	height: 30px;
+}

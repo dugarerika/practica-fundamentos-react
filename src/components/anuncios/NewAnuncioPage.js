@@ -20,7 +20,7 @@ class NewAnuncioPage extends React.Component {
 		console.log(event);
 		try {
 			const createdAnuncio = await createAnuncio(credentials);
-			console.log(createdAnuncio);
+			console.log(createdAnuncio.result._id);
 		} catch (error) {
 			console.log('memandaron al error');
 		}
@@ -83,37 +83,6 @@ class NewAnuncioPage extends React.Component {
 							<input type='radio' value={false} name='sale' /> Compra
 							<input type='radio' value={true} name='sale' /> Venta
 						</div>
-						<div>
-							<AnuncioInput
-								name='tags'
-								type='checkbox'
-								label='tecnologia'
-								value='tecnologia'
-								onChange={this.handleCheck}
-							/>
-							<AnuncioInput
-								name='tags'
-								type='checkbox'
-								label='Ropa'
-								value='Ropa'
-								onChange={this.handleCheck}
-							/>
-							<AnuncioInput
-								name='tags'
-								type='checkbox'
-								label='Sports'
-								value='Sports'
-								onChange={this.handleCheck}
-							/>
-							<AnuncioInput
-								name='tags'
-								type='checkbox'
-								label='Celulares'
-								value='Celulares'
-								onChange={this.handleCheck}
-							/>
-						</div>
-
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='photo'
@@ -122,20 +91,30 @@ class NewAnuncioPage extends React.Component {
 							value={photo}
 							onChange={this.handleChange}
 						/>
-						<AnuncioInput
-							className='input-new-anuncio'
-							name='price'
-							type='number'
-							label='price'
-							value={price}
-							onChange={this.handleChange}
-						/>
+						<div>
+							<AnuncioInput
+								min={0}
+								className='input-new-anuncio'
+								name='price'
+								type='number'
+								label='price €  Euro '
+								value={price}
+								onChange={this.handleChange}
+							/>
+						</div>
+
+						<div className='checkboxs-new-anuncio '>
+							<FormCheckboxes
+								className='checkbox-input-new-anuncio'
+								name='tags'
+								label='tags'
+								onChange={this.handleCheck}
+							/>
+						</div>
 						<div id='loweranuncio'>
 							<Button
 								type='submit'
 								className='new-anuncio-button'
-								Log
-								In
 								disabled={!this.couldSubmit()}>
 								Crear
 							</Button>

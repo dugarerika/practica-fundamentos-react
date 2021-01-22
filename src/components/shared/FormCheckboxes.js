@@ -3,10 +3,14 @@ import React from 'react';
 class FormCheckboxes extends React.Component {
 	state = {
 		infoTags: [
-			{ id: 1, value: 'PHP' },
-			{ id: 2, value: 'Laravel' },
-			{ id: 3, value: 'Angular' },
-			{ id: 4, value: 'React' }
+			{ id: 1, value: 'Ropa' },
+			{ id: 2, value: 'tecnologia' },
+			{ id: 3, value: 'Celulares' },
+			{ id: 4, value: 'Deporte' },
+			{ id: 5, value: 'Video Juegos' },
+			{ id: 6, value: 'Hogar' },
+			{ id: 7, value: 'Aseo' },
+			{ id: 8, value: 'Automovil' }
 		]
 	};
 
@@ -16,8 +20,7 @@ class FormCheckboxes extends React.Component {
 		return (
 			<div>
 				{infoTags.map((item) => (
-					<label>
-						s
+					<label key={item.id}>
 						<input
 							{...props}
 							type='checkbox'
