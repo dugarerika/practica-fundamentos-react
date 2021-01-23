@@ -4,8 +4,11 @@ import storage from '../utils/storage';
 
 export const login = (credentials) =>
 	client.login(credentials).then((auth) => {
+		const Remember = credentials.RememberMe;
 		const { ok, token } = auth;
-		storage.set('auth', { ok, token });
+		if (Remember === true) {
+			storage.set('auth', { ok, token });
+		}
 		return auth;
 	});
 

@@ -58,7 +58,7 @@ body {
 .loginPage-submit {
 	float: right;
 	margin-right: 20px;
-	margin-top: 20px;
+	margin-top: 0px;
 	width: 80px;
 	height: 30px;
 	font-size: 14px;
@@ -101,9 +101,16 @@ body {
 	);
 }
 
+.loginPage-checkbox {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: 18px;
+	margin-top: 20px;
+}
+
 #lower {
 	width: 340px;
-	height: 69px;
+	height: 90px;
 	margin-top: 70px;
 	background: #ecf2f5;
 

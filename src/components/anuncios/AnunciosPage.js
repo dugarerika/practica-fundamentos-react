@@ -4,9 +4,6 @@ import { getAllAnuncios } from '../../API/anuncios';
 
 import Anuncio from '../anuncios/Anuncio';
 import Layout from '../layout/Layout';
-
-// const Anuncio = ({ anuncio }) => <li>{JSON.stringify(anuncio)}</li>;
-
 class AnunciosPage extends React.Component {
 	state = {
 		anuncios: null

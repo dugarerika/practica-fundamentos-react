@@ -9,7 +9,8 @@ class LoginPage extends React.Component {
 	state = {
 		form: {
 			email: '',
-			password: ''
+			password: '',
+			RememberMe: false
 		},
 		submmiting: false,
 		error: null
@@ -20,6 +21,7 @@ class LoginPage extends React.Component {
 		const { form: credentials } = this.state;
 		event.preventDefault();
 		console.log(event);
+		console.log(credentials);
 		this.setState({ submmiting: true });
 
 		try {
@@ -33,6 +35,17 @@ class LoginPage extends React.Component {
 			console.log('memandaron al error');
 			this.setState({ submmiting: false, error });
 		}
+	};
+
+	handleCheck = (event) => {
+		console.log(event.target);
+		const target = event.target;
+		const value = target.checked;
+		const name = target.name;
+
+		this.setState((state) => ({
+			form: { ...state.form, [name]: value }
+		}));
 	};
 
 	handleChange = (event) => {
@@ -74,9 +87,18 @@ class LoginPage extends React.Component {
 						onChange={this.handleChange}
 					/>
 					<div id='lower'>
+						<div className='loginPage-checkbox'>
+							<input
+								type='checkbox'
+								name='RememberMe'
+								onChange={this.handleCheck}
+								checked={this.state.RememberMe}
+							/>
+							<label>Remember me</label>
+						</div>
 						<Button
 							type='submit'
-							className='loginPage-button'
+							className='loginPage-submit'
 							variant='primary'
 							disabled={!this.couldSubmit()}>
 							Log In
