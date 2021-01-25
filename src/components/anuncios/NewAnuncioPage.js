@@ -115,10 +115,7 @@ class NewAnuncioPage extends React.Component {
 							/>
 						</div>
 						<div id='loweranuncio'>
-							<Button
-								type='submit'
-								className='new-anuncio-button'
-								disabled={!this.couldSubmit()}>
+							<Button type='submit' disabled={!this.couldSubmit()}>
 								Crear
 							</Button>
 						</div>
