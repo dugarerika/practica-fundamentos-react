@@ -1,15 +1,24 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { getDetalleAnuncio } from '../../API/anuncios';
+import { deleteDetalleAnuncio, getDetalleAnuncio } from '../../API/anuncios';
 import Layout from '../layout/Layout';
 import Anuncio from '../anuncios/Anuncio';
 import Imagen from '../shared/Imagen';
 import './Anuncio.css';
+import ConfirmButton from '../shared/ConfirmButton';
 
 class AnuncioPage extends React.Component {
 	state = {
 		anuncio: null,
 		error: null
+	};
+
+	deleteDetalle = () => {
+		const { history } = this.props;
+		const { anuncioID } = this.props.match.params;
+		deleteDetalleAnuncio(anuncioID)
+			.then(() => history.push('/'))
+			.catch((error) => this.setState({ error }));
 	};
 
 	getDetalle = async () => {
@@ -38,6 +47,15 @@ class AnuncioPage extends React.Component {
 					<Imagen src={anuncio.result.foto} />
 				</div>
 				<Anuncio key={anuncio._id} anuncio={anuncio.result} history={history} />
+				<div>
+					<ConfirmButton
+						name='delete'
+						label='Delete'
+						question='Esta Seguro?'
+						className='ConfirmationButton'
+						onClick={this.deleteDetalle}
+					/>
+				</div>
 			</div>
 		);
 	}

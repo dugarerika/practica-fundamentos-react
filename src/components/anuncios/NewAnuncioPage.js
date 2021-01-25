@@ -15,12 +15,15 @@ class NewAnuncioPage extends React.Component {
 	};
 
 	handleSubmit = async (event) => {
+		const { history } = this.props;
 		const { form: credentials } = this.state;
 		event.preventDefault();
 		console.log(event);
+
 		try {
 			const createdAnuncio = await createAnuncio(credentials);
 			console.log(createdAnuncio.result._id);
+			history.push(`/anuncio/${createdAnuncio.result._id}`);
 		} catch (error) {
 			console.log('memandaron al error');
 		}
