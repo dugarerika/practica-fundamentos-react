@@ -1,16 +1,28 @@
 import React from 'react';
 import { AnuncioInput, Button, FormCheckboxes } from '../shared/index';
 import '../anuncios/Filtro.css';
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import Slider from 'rc-slider';
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
 
 class Filtro extends React.Component {
 	state = {
 		query: {
 			name: '',
-			price: '',
+			price: [
+				0,
+				3000
+			],
 			sale: false,
 			photo: 'foto.png',
 			tags: []
 		}
+	};
+
+	handleSlider = (price) => {
+		this.setState({ price });
 	};
 
 	handleCheck = (event) => {
@@ -21,7 +33,7 @@ class Filtro extends React.Component {
 		console.log(target.checked);
 		if (target.checked) {
 			this.setState((state) => ({
-				query: { ...state.form, tags: tags.concat(value) }
+				query: { ...state.query, tags: tags.concat(value) }
 			}));
 		}
 		else {
@@ -29,14 +41,14 @@ class Filtro extends React.Component {
 			const id = tags.indexOf(value);
 			console.log(id);
 			this.setState((state) => ({
-				query: { ...state.form, tags: tags.filter((item) => item !== value) }
+				query: { ...state.query, tags: tags.filter((item) => item !== value) }
 			}));
 		}
 		console.log(tags);
 	};
 
 	render() {
-		const { query: { name, price, photo } } = this.state;
+		const { query: { name, price } } = this.state;
 		return (
 			<div>
 				<form
@@ -52,20 +64,21 @@ class Filtro extends React.Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<div className='input-consulta-name'>
-						<AnuncioInput
-							min={0}
-							className='input-new-anuncio'
-							name='price'
-							type='number'
-							label='price €  Euro '
-							value={price}
-							onChange={this.handleChange}
-						/>
-					</div>
 					<div className='radio-input-new-anuncio' onChange={this.handleChange}>
 						<input type='radio' value={false} name='sale' /> Compra
 						<input type='radio' value={true} name='sale' /> Venta
+					</div>
+					<div className='input-consulta-price'>
+						{price[0]} - {price[1]}
+						<Range
+							min={0}
+							max={10000}
+							onChange={this.handleSlider}
+							defaultValue={price}
+							tipFormatter={(value) => (
+								<span className='tooltip'>{value}€</span>
+							)}
+						/>
 					</div>
 					<div className='checkboxs-new-anuncio '>
 						<FormCheckboxes
@@ -75,10 +88,9 @@ class Filtro extends React.Component {
 							onChange={this.handleCheck}
 						/>
 					</div>
-
 					<div id='lowerconsultaanuncio'>
 						<button type='submit' className='consulta-anuncio-button'>
-							Crear
+							consultar
 						</button>
 					</div>
 				</form>
