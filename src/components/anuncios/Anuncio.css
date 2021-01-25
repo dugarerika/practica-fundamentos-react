@@ -1,5 +1,5 @@
 .anuncio {
-	font-size: 25px;
+	font-size: 20px;
 	border-bottom-width: 1px;
 	cursor: pointer;
 	display: flex;
@@ -47,6 +47,7 @@
 }
 
 .left {
+	font-size: 35px;
 	font-weight: 900;
 	justify-content: end;
 	display: inline-flex;
