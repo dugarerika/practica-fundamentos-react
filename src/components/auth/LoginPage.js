@@ -19,6 +19,7 @@ class LoginPage extends React.Component {
 	handleSubmit = async (event) => {
 		const { onLogin, history } = this.props;
 		const { form: credentials } = this.state;
+
 		event.preventDefault();
 		console.log(event);
 		console.log(credentials);

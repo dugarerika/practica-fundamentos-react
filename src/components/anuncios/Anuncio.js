@@ -7,18 +7,26 @@ const Anuncio = ({ anuncio, history }) => (
 	<article
 		className='anuncio'
 		onClick={() => history.push(`/anuncio/${anuncio._id}`)}>
+		<div className='left'>
+			{
+				anuncio.sale ? <span>Venta</span> :
+				<span>Compra</span>}
+		</div>
+
 		<div className='right'>
 			<div className='anuncio-cabecera'>
-				<span className='anuncio-nombre'>{anuncio.name}</span>
-				<span className='anuncio-venta'>{anuncio.sale}</span>
-				<span className='anuncio-precio'>Precio:</span>
-				<span className='anuncio-precio'>{anuncio.price}</span>
-				<span className='anuncio-etiquetas'>
-					<ul>
-						<li>{anuncio.tags[0]}</li>
-						<li>{anuncio.tags[1]}</li>
-					</ul>
-				</span>
+				<h1 className='anuncio-nombre'>{anuncio.name}</h1>
+				<div className='anuncio-contenido'>
+					<span className='anuncio-venta'>{anuncio.sale}</span>
+					<span className='anuncio-precio'>{'Precio: €' + anuncio.price}</span>
+					<span className='anuncio-etiquetas'>
+						Tags:
+						<ul className='anuncio-etiquetas-contenido'>
+							<li>{anuncio.tags[0]}</li>
+							<li>{anuncio.tags[1]}</li>
+						</ul>
+					</span>
+				</div>
 				<span className='anuncio-separador' />
 			</div>
 			<div />

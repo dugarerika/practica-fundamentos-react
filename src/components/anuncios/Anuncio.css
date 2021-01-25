@@ -1,24 +1,36 @@
 .anuncio {
+	font-size: 25px;
 	border-bottom-width: 1px;
 	cursor: pointer;
 	display: flex;
 	padding: 10px 15 px 0 15px;
 	transition: background-color 0.2s;
+	border-style: solid;
 }
 .anuncio:hover {
 	background-color: rgba(0, 0, 0, 0.03);
 }
 .anuncio-cabecera {
+	margin-bottom: 0%;
+	margin-top: 30px;
+	color: rgb(101, 119, 134);
+	margin-bottom: 2px;
+}
+.anuncio-contenido {
+	margin-left: 10px;
+	display: inline-table;
 	color: rgb(101, 119, 134);
 	margin-bottom: 2px;
 }
 .anuncio-precio {
+	margin-top: 0%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin-top: 10px;
 	max-width: 425px;
 }
 .anuncio-nombre {
+	font-size: 30px;
 	color: rgb(20, 23, 26);
 	font-weight: bold;
 }
@@ -35,11 +47,27 @@
 }
 
 .left {
+	font-weight: 900;
+	justify-content: end;
+	display: inline-flex;
 	flex: 0 0 auto;
 	margin-right: 30px;
 }
 
 .right {
+	margin-left: 60px;
 	flex: 1;
 	padding-bottom: 10px;
+}
+.anuncio-etiquetas-contenido {
+	margin-left: 85px;
+}
+
+.left span {
+	color: brown;
+	font-weight: 900;
+	justify-content: end;
+	display: inline-flex;
+	flex: 0 0 auto;
+	margin-right: 30px;
 }
