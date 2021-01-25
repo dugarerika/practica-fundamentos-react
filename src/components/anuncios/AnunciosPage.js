@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Filtro from '../anuncios/Filtro';
 import { getAllAnuncios } from '../../API/anuncios';
 
 import Anuncio from '../anuncios/Anuncio';
@@ -18,6 +18,17 @@ class AnunciosPage extends React.Component {
 		this.getAnuncios();
 	}
 
+	renderFiltro() {
+		const { history } = this.props;
+		const { anuncios } = this.state;
+
+		if (!anuncios) {
+			return null;
+		}
+		<Filtro>info</Filtro>;
+		return <Filtro>info</Filtro>;
+	}
+
 	renderContent() {
 		const { history } = this.props;
 		const { anuncios } = this.state;
@@ -25,7 +36,7 @@ class AnunciosPage extends React.Component {
 		if (!anuncios) {
 			return null;
 		}
-
+		<Filtro>info</Filtro>;
 		return anuncios.map((anuncio) => (
 			<Anuncio key={anuncio._id} anuncio={anuncio} history={history} />
 		));
@@ -34,9 +45,12 @@ class AnunciosPage extends React.Component {
 	render() {
 		console.log(this.state);
 		return (
-			<Layout title='Lista de Anuncios'>
-				<div className='AnunciosPage'>{this.renderContent()}</div>
-			</Layout>
+			<div>
+				<Layout title='Lista de Anuncios'>
+					<div className='AnunciosPage'>{this.renderFiltro()}</div>
+					<div className='AnunciosPage'>{this.renderContent()}</div>
+				</Layout>
+			</div>
 		);
 	}
 }

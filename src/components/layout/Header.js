@@ -10,7 +10,10 @@ import { AuthContextConsumer } from '../auth/context';
 const Header = ({ className, isLogged, onLogout, ...props }) => (
 	<header className={classNames('header', className)} {...props}>
 		<div className='header-logo'>{<Icon width='32' height='32' />}</div>
-		<nav className='header-nav'>
+		<nav className='header-nav-anuncio'>
+			<Button as={Link} to='/' variant='primary' className='header-button'>
+				Anuncios
+			</Button>
 			<Button
 				as={Link}
 				to='/anuncio'
@@ -18,6 +21,8 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 				className='header-button'>
 				Nuevo Anuncio
 			</Button>
+		</nav>
+		<nav className='header-nav'>
 			{
 				isLogged ? <Button
 					as={Link}
