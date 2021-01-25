@@ -35,7 +35,7 @@ const Anuncio = ({ anuncio, history }) => (
 );
 
 Anuncio.propTypes = {
-	anuncio: T.string,
+	anuncio: T.object,
 	history: T.shape({ push: T.func.isRequired }).isRequired
 };
 

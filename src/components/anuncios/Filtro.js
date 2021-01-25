@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnuncioInput, Button, FormCheckboxes } from '../shared/index';
+import { AnuncioInput, FormCheckboxes } from '../shared/index';
 import '../anuncios/Filtro.css';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
@@ -23,6 +23,17 @@ class Filtro extends React.Component {
 
 	handleSlider = (price) => {
 		this.setState({ price });
+		console.log(price);
+	};
+
+	handleChange = async (event) => {
+		console.log(event.target);
+		const target = event.target;
+		const value = target.value;
+		const name = target.name;
+		this.setState((state) => ({
+			query: { ...state.query, [name]: value }
+		}));
 	};
 
 	handleCheck = (event) => {
@@ -54,6 +65,7 @@ class Filtro extends React.Component {
 				<form
 					className='container-consultar-anuncio'
 					onSubmit={this.handleSubmit}>
+					Filtrar Anuncios
 					<div className='input-consulta-name'>
 						<AnuncioInput
 							className='input-new-anuncio'

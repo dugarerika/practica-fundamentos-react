@@ -25,8 +25,8 @@ class AnunciosPage extends React.Component {
 		if (!anuncios) {
 			return null;
 		}
-		<Filtro>info</Filtro>;
-		return <Filtro>info</Filtro>;
+
+		return <Filtro />;
 	}
 
 	renderContent() {
@@ -36,7 +36,7 @@ class AnunciosPage extends React.Component {
 		if (!anuncios) {
 			return null;
 		}
-		<Filtro>info</Filtro>;
+
 		return anuncios.map((anuncio) => (
 			<Anuncio key={anuncio._id} anuncio={anuncio} history={history} />
 		));
