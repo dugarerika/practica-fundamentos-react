@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
 			console.log(loggedUser);
 			this.setState({ submmiting: false, error: null });
 			if (info.ok === false) throw info.error;
-			onLogin(loggedUser, () => history.push('/anuncio'));
+			onLogin(loggedUser, () => history.push('/anuncios'));
 		} catch (error) {
 			console.log('memandaron al error');
 			this.setState({ submmiting: false, error });

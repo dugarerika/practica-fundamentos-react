@@ -3,6 +3,7 @@ import { AnuncioInput, FormCheckboxes } from '../shared/index';
 import '../anuncios/Filtro.css';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
+import { getFilterAnuncios } from '../../API/anuncios';
 import Slider from 'rc-slider';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -16,8 +17,24 @@ class Filtro extends React.Component {
 				3000
 			],
 			sale: false,
-			photo: 'foto.png',
 			tags: []
+		}
+	};
+
+	handleSubmit = async (event) => {
+		const { history } = this.props;
+		const { query: credentials } = this.state;
+		event.preventDefault();
+		const info = credentials;
+
+		// const filter = `?start=2&limit=2&sort=price&name=${info.name}`;
+
+		const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
+		try {
+			const createdAnuncio = await getFilterAnuncios(filter);
+			console.log(createdAnuncio.result);
+		} catch (error) {
+			console.log('memandaron al error');
 		}
 	};
 
@@ -92,7 +109,7 @@ class Filtro extends React.Component {
 							)}
 						/>
 					</div>
-					<div className='checkboxs-new-anuncio '>
+					<div className='checkboxs-consulta-anuncio'>
 						<FormCheckboxes
 							className='checkbox-input-new-anuncio'
 							name='tags'

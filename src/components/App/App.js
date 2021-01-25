@@ -40,9 +40,18 @@ class App extends React.Component {
 								/>
 							)}
 						</Route>
-						<ProtectedRoute path='/' exact component={NewAnuncioPage} />
-						<ProtectedRoute path='/anuncio' exact component={NewAnuncioPage} />
-						<Route path='/anuncio/:anuncioID' exact component={AnuncioPage} />
+						<ProtectedRoute path='/' exact component={AnunciosPage} />
+						<ProtectedRoute path='/anuncios' exact component={AnunciosPage} />
+						<ProtectedRoute
+							path='/anuncio/new'
+							exact
+							component={NewAnuncioPage}
+						/>
+						<ProtectedRoute
+							path='/anuncio/:anuncioID'
+							exact
+							component={AnuncioPage}
+						/>
 						<Route path='/login' exact>
 							{({ history }) => (
 								<LoginPage onLogin={this.handleLogin} history={history} />

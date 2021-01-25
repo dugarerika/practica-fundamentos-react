@@ -16,7 +16,7 @@ const Header = ({ className, isLogged, onLogout, ...props }) => (
 			</Button>
 			<Button
 				as={Link}
-				to='/anuncio'
+				to='/anuncio/new'
 				variant='primary'
 				className='header-button'>
 				Nuevo Anuncio

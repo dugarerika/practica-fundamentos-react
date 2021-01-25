@@ -71,7 +71,7 @@ span {
 
 .input-new-anuncio {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	outline: none;
 	color: #777;
 	padding-left: 10px;
@@ -111,7 +111,7 @@ span {
 
 .radio-input-new-anuncio {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	outline: none;
 	color: #777;
 	padding-left: 10px;
@@ -145,7 +145,7 @@ span {
 
 .checkbox-input-new-anuncio {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 
 	/* padding-left: 10px; */
 	/* margin: 15px; */
@@ -178,7 +178,7 @@ span {
 }
 .currency {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	outline: none;
 	color: none;
 	padding-left: 10px;

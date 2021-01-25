@@ -21,3 +21,9 @@ export const deleteDetalleAnuncio = (anuncioID) => {
 	const url = `${anuncioBaseUrl}/adverts/${anuncioID}`;
 	return client.delete(url);
 };
+
+export const getFilterAnuncios = (filter) => {
+	console.log(filter);
+	const url = `${anuncioBaseUrl}/adverts${filter}`;
+	return client.get(url);
+};

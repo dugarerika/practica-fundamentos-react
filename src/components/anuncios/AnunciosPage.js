@@ -22,10 +22,6 @@ class AnunciosPage extends React.Component {
 		const { history } = this.props;
 		const { anuncios } = this.state;
 
-		if (!anuncios) {
-			return null;
-		}
-
 		return <Filtro />;
 	}
 

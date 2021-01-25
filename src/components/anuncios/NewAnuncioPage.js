@@ -19,14 +19,14 @@ class NewAnuncioPage extends React.Component {
 		const { form: credentials } = this.state;
 		event.preventDefault();
 		console.log(event);
+		const info = credentials;
+		console.log(info.name);
 
 		try {
 			const createdAnuncio = await createAnuncio(credentials);
-			console.log(createdAnuncio.result._id);
+
 			history.push(`/anuncio/${createdAnuncio.result._id}`);
-		} catch (error) {
-			console.log('memandaron al error');
-		}
+		} catch (error) {}
 	};
 
 	handleCheck = (event) => {

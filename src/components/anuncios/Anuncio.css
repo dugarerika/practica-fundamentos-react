@@ -1,5 +1,9 @@
 .anuncio {
-	font-size: 20px;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	outline: none;
+	background-color: transparent;
+	font-size: 16px;
+
 	border-bottom-width: 1px;
 	cursor: pointer;
 	display: flex;
@@ -11,18 +15,30 @@
 	background-color: rgba(0, 0, 0, 0.03);
 }
 .anuncio-cabecera {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	outline: none;
+	background-color: transparent;
+	font-size: 16px;
 	margin-bottom: 0%;
 	margin-top: 30px;
 	color: rgb(101, 119, 134);
 	margin-bottom: 2px;
 }
 .anuncio-contenido {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	outline: none;
+	background-color: transparent;
+	font-size: 16px;
 	margin-left: 10px;
 	display: inline-table;
 	color: rgb(101, 119, 134);
 	margin-bottom: 2px;
 }
 .anuncio-precio {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	outline: none;
+	background-color: transparent;
+	font-size: 16px;
 	margin-top: 0%;
 	display: flex;
 	justify-content: flex-start;
@@ -30,11 +46,16 @@
 	max-width: 425px;
 }
 .anuncio-nombre {
-	font-size: 30px;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	outline: none;
+	background-color: transparent;
+	font-size: 22px;
+
 	color: rgb(20, 23, 26);
 	font-weight: bold;
 }
 .anuncio-venta {
+	font-size: 20px;
 	margin-left: 5px;
 }
 .anuncio-separador {
@@ -47,7 +68,7 @@
 }
 
 .left {
-	font-size: 35px;
+	font-size: 25px;
 	font-weight: 900;
 	justify-content: flex-end;
 	display: inline-flex;
