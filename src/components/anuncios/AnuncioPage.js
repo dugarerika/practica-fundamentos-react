@@ -6,6 +6,7 @@ import Anuncio from '../anuncios/Anuncio';
 import Imagen from '../shared/Imagen';
 import './Anuncio.css';
 import ConfirmButton from '../shared/ConfirmButton';
+import Container from '../shared/Container';
 
 class AnuncioPage extends React.Component {
 	state = {
@@ -42,20 +43,11 @@ class AnuncioPage extends React.Component {
 			return null;
 		}
 		return (
-			<div>
+			<div className='anuncio'>
 				<div className='left'>
-					<Imagen src={anuncio.result.foto} />
+					<Imagen src={anuncio.result.photo} />
 				</div>
 				<Anuncio key={anuncio._id} anuncio={anuncio.result} history={history} />
-				<div>
-					<ConfirmButton
-						name='delete'
-						label='Delete'
-						question='Esta Seguro?'
-						className='ConfirmationButton'
-						onClick={this.deleteDetalle}
-					/>
-				</div>
 			</div>
 		);
 	}
@@ -64,6 +56,14 @@ class AnuncioPage extends React.Component {
 		return (
 			<Layout title='Anuncio Detalle'>
 				<div className='AnuncioPage'>{this.renderContent()}</div>
+				<Container>
+					<ConfirmButton
+						name='delete'
+						label='Delete'
+						question='Esta Seguro?'
+						onClick={this.deleteDetalle}
+					/>
+				</Container>
 			</Layout>
 		);
 	}

@@ -5,12 +5,13 @@ import './Anuncio.css';
 
 const Anuncio = ({ anuncio, history }) => (
 	<article
-		className='anuncio bordered'
+		className='anuncio'
 		onClick={() => history.push(`/anuncio/${anuncio._id}`)}>
 		<div className='right'>
 			<div className='anuncio-cabecera'>
 				<span className='anuncio-nombre'>{anuncio.name}</span>
 				<span className='anuncio-venta'>{anuncio.sale}</span>
+				<span className='anuncio-precio'>Precio:</span>
 				<span className='anuncio-precio'>{anuncio.price}</span>
 				<span className='anuncio-etiquetas'>
 					<ul>

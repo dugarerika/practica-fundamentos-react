@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../shared/Button';
+import Container from '../shared/Container';
 
 class ConfirmButton extends React.Component {
 	constructor(props) {
@@ -15,7 +16,7 @@ class ConfirmButton extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<Container>
 				{(this.state.confirmed !== true && (
 					<Button
 						type='button'
@@ -26,8 +27,8 @@ class ConfirmButton extends React.Component {
 						{this.state.label}
 					</Button>
 				)) || (
-					<div>
-						<span className='mr-3'>{this.state.question}</span>
+					<Container>
+						<span className='mensaje'>{this.state.question}</span>
 						<Button
 							name={this.props.name}
 							type='button'
@@ -46,9 +47,9 @@ class ConfirmButton extends React.Component {
 							}}>
 							No
 						</Button>
-					</div>
+					</Container>
 				)}
-			</div>
+			</Container>
 		);
 	}
 }
