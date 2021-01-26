@@ -23,8 +23,6 @@ class Filtro extends React.Component {
 
 	axiosParams = (credentials) => {
 		const params = new URLSearchParams();
-		// params.append('start', '0');
-		// params.append('limit', '10');
 
 
 			credentials.price !==
@@ -50,7 +48,6 @@ class Filtro extends React.Component {
 		console.log(credentials);
 		const filter = this.axiosParams(credentials);
 
-		// const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
 		try {
 			const generatedAnuncios = await getFilterAnuncios(filter);
 			console.log(generatedAnuncios.results);

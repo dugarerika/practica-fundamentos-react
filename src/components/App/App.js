@@ -1,6 +1,7 @@
 import React from 'react';
 import AnunciosPage from '../anuncios/AnunciosPage';
 import LoginPage from '../auth/LoginPage';
+import Tags from '../anuncios/Tags';
 import T from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import AnuncioPage from '../anuncios/AnuncioPage';
@@ -40,6 +41,7 @@ class App extends React.Component {
 								/>
 							)}
 						</Route>
+						<ProtectedRoute path='/anuncios/tags' exact component={Tags} />
 						<ProtectedRoute path='/' exact component={AnunciosPage} />
 						<ProtectedRoute path='/anuncios' exact component={AnunciosPage} />
 						<ProtectedRoute
