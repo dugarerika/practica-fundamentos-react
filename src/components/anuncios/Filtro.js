@@ -14,20 +14,28 @@ class Filtro extends React.Component {
 			name: '',
 			price: [
 				0,
-				3000
+				0
 			],
 			sale: false,
 			tags: []
 		}
 	};
 
+	axiosParams() {
+		const params = new URLSearchParams();
+		params.append('param1', 'value1');
+		params.append('param2', 'value2');
+		return params;
+	}
+
 	handleSubmit = async (event) => {
 		const { history } = this.props;
 		const { query: credentials } = this.state;
 		event.preventDefault();
+		console.log(credentials);
 		const info = credentials;
 
-		// const filter = `?start=2&limit=2&sort=price&name=${info.name}`;
+		// const filter = `?start=2&limit=4&sort=price&name=${info.name}`;
 
 		const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
 		try {
@@ -44,7 +52,6 @@ class Filtro extends React.Component {
 	};
 
 	handleChange = async (event) => {
-		console.log(event.target);
 		const target = event.target;
 		const value = target.value;
 		const name = target.name;
@@ -54,20 +61,18 @@ class Filtro extends React.Component {
 	};
 
 	handleCheck = (event) => {
-		console.log(event.target);
 		const { query: { tags } } = this.state;
 		const target = event.target;
 		const value = target.value;
-		console.log(target.checked);
+
 		if (target.checked) {
 			this.setState((state) => ({
 				query: { ...state.query, tags: tags.concat(value) }
 			}));
 		}
 		else {
-			console.log(tags);
 			const id = tags.indexOf(value);
-			console.log(id);
+
 			this.setState((state) => ({
 				query: { ...state.query, tags: tags.filter((item) => item !== value) }
 			}));
