@@ -18,7 +18,6 @@ class NewAnuncioPage extends React.Component {
 		const { history } = this.props;
 		const { form: credentials } = this.state;
 		event.preventDefault();
-		console.log(event);
 		const info = credentials;
 		console.log(info.name);
 
@@ -67,7 +66,7 @@ class NewAnuncioPage extends React.Component {
 	};
 
 	render() {
-		const { form: { name, price, photo } } = this.state;
+		const { form: { name, price } } = this.state;
 		return (
 			<Layout title='Crea un nuevo anuncio'>
 				<div className='form-new-anuncio'>
@@ -89,9 +88,8 @@ class NewAnuncioPage extends React.Component {
 						<AnuncioInput
 							className='input-new-anuncio'
 							name='photo'
-							type='text'
+							type='file'
 							label='Foto'
-							value={photo}
 							onChange={this.handleChange}
 						/>
 						<div>
@@ -105,7 +103,6 @@ class NewAnuncioPage extends React.Component {
 								onChange={this.handleChange}
 							/>
 						</div>
-
 						<div className='checkboxs-new-anuncio '>
 							<FormCheckboxes
 								className='checkbox-input-new-anuncio'

@@ -1,18 +1,19 @@
 import React from 'react';
 import { FormCheckboxes } from '../shared/index';
+import Layout from '../layout/Layout';
 
 class Tags extends React.Component {
 	render() {
 		return (
-			<div className='checkboxs-consulta-anuncio'>
-				<FormCheckboxes
-					type='text'
-					className='checkbox-input-new-anuncio'
-					name='tags'
-					label='tags'
-					onChange={this.handleCheck}
-				/>
-			</div>
+			<Layout>
+				<div>
+					<FormCheckboxes
+						className='checkbox-input-new-anuncio'
+						name='tags'
+						label='tags'
+					/>
+				</div>
+			</Layout>
 		);
 	}
 }
