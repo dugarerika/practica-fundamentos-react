@@ -23,34 +23,48 @@ class Filtro extends React.Component {
 
 	axiosParams = (credentials) => {
 		const params = new URLSearchParams();
-		params.append('start', '0');
-		params.append('limit', '10');
+		// params.append('start', '0');
+		// params.append('limit', '10');
+
+
+			credentials.price !==
+			[
+				0,
+				0
+			] ? params.append(
+				'price',
+				`${credentials.price[0]}-${credentials.price[1]}`
+			) :
+			params.append('price', 0);
 		credentials.name !== '' && params.append('name', credentials.name);
 		credentials.sale !== '' && params.append('sale', credentials.sale);
-		credentials.sale !== [] && params.append('tags', credentials.tags);
-
+		credentials.tags.length !== 0 && params.append('tags', credentials.tags);
+		console.log(`${credentials.price[0]}-${credentials.price[1]}`);
 		return params;
 	};
 
 	handleSubmit = async (event) => {
-		const { history } = this.props;
+		const { onfilter, history } = this.props;
 		const { query: credentials } = this.state;
 		event.preventDefault();
-		console.log(credentials.name);
+		console.log(credentials);
 		const filter = this.axiosParams(credentials);
 
 		// const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
 		try {
-			const createdAnuncio = await getFilterAnuncios(filter);
-			console.log(createdAnuncio.result);
+			const generatedAnuncios = await getFilterAnuncios(filter);
+			console.log(generatedAnuncios.results);
+			onfilter(generatedAnuncios, () => history.push('/anuncios'));
 		} catch (error) {
 			console.log('memandaron al error');
 		}
 	};
 
-	handleSlider = (price) => {
-		this.setState({ price });
-		console.log(price);
+	handleSlider = (event) => {
+		console.log(event);
+		this.setState((state) => ({
+			query: { ...state.query, price: event }
+		}));
 	};
 
 	handleChange = async (event) => {
@@ -106,7 +120,7 @@ class Filtro extends React.Component {
 						{price[0]} - {price[1]}
 						<Range
 							min={0}
-							max={10000}
+							max={1000}
 							onChange={this.handleSlider}
 							defaultValue={price}
 							tipFormatter={(value) => (

@@ -93,3 +93,7 @@
 	flex: 0 0 auto;
 	margin-right: 30px;
 }
+
+.mensaje {
+	justify-content: center;
+}
