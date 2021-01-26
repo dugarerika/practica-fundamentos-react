@@ -16,17 +16,19 @@ class Filtro extends React.Component {
 				0,
 				0
 			],
-			sale: false,
+			sale: '',
 			tags: []
 		}
 	};
 
 	axiosParams = (credentials) => {
 		const params = new URLSearchParams();
-		params.append('name', credentials.name);
-		params.append('sale', credentials.sale);
-		// params.append('price', credentials.price);
-		params.append('tags', credentials.tags);
+		params.append('start', '0');
+		params.append('limit', '10');
+		credentials.name !== '' && params.append('name', credentials.name);
+		credentials.sale !== '' && params.append('sale', credentials.sale);
+		credentials.sale !== [] && params.append('tags', credentials.tags);
+
 		return params;
 	};
 
@@ -71,8 +73,6 @@ class Filtro extends React.Component {
 			}));
 		}
 		else {
-			const id = tags.indexOf(value);
-
 			this.setState((state) => ({
 				query: { ...state.query, tags: tags.filter((item) => item !== value) }
 			}));
