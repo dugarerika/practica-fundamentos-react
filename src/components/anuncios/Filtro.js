@@ -21,23 +21,23 @@ class Filtro extends React.Component {
 		}
 	};
 
-	axiosParams() {
+	axiosParams = (credentials) => {
 		const params = new URLSearchParams();
-		params.append('param1', 'value1');
-		params.append('param2', 'value2');
+		params.append('name', credentials.name);
+		params.append('sale', credentials.sale);
+		// params.append('price', credentials.price);
+		params.append('tags', credentials.tags);
 		return params;
-	}
+	};
 
 	handleSubmit = async (event) => {
 		const { history } = this.props;
 		const { query: credentials } = this.state;
 		event.preventDefault();
-		console.log(credentials);
-		const info = credentials;
+		console.log(credentials.name);
+		const filter = this.axiosParams(credentials);
 
-		// const filter = `?start=2&limit=4&sort=price&name=${info.name}`;
-
-		const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
+		// const filter = `?start=0&limit=2&sort=price&name=${info.name}`;
 		try {
 			const createdAnuncio = await getFilterAnuncios(filter);
 			console.log(createdAnuncio.result);

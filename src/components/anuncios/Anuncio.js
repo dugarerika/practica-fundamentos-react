@@ -22,8 +22,9 @@ const Anuncio = ({ anuncio, history }) => (
 					<span className='anuncio-etiquetas'>
 						Tags:
 						<ul className='anuncio-etiquetas-contenido'>
-							<li>{anuncio.tags[0]}</li>
-							<li>{anuncio.tags[1]}</li>
+							{anuncio.tags.map((tag) => (
+								<li key={anuncio.tags.indexOf(tag)}>{tag}</li>
+							))}
 						</ul>
 					</span>
 				</div>

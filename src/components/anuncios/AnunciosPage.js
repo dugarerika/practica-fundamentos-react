@@ -19,8 +19,8 @@ class AnunciosPage extends React.Component {
 	}
 
 	renderFiltro() {
-		const { history } = this.props;
-		const { anuncios } = this.state;
+		// const { history } = this.props;
+		// const { anuncios } = this.state;
 
 		return <Filtro />;
 	}
@@ -39,7 +39,7 @@ class AnunciosPage extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
+		// console.log(this.state);
 		return (
 			<div>
 				<Layout title='Lista de Anuncios'>
