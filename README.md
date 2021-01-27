@@ -1,3 +1,5 @@
+# Nota: el backend que he utilizado es el siguiente: https://github.com/davidjj76/nodepop_web_avanzado
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
