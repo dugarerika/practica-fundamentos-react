@@ -12,9 +12,9 @@ export const getDetalleAnuncio = (anuncioID) => {
 	return client.get(url);
 };
 
-export const createAnuncio = (anuncio) => {
+export const createAnuncio = (formData) => {
 	const url = `${anuncioBaseUrl}/adverts`;
-	return client.post(url, anuncio);
+	return client.post(url, formData);
 };
 
 export const deleteDetalleAnuncio = (anuncioID) => {

@@ -9,21 +9,27 @@ class NewAnuncioPage extends React.Component {
 			name: '',
 			price: '',
 			sale: false,
-			photo: 'foto.png',
+			photo: null,
 			tags: []
 		}
 	};
 
 	handleSubmit = async (event) => {
+		const formData = new FormData();
 		const { history } = this.props;
 		const { form: credentials } = this.state;
 		event.preventDefault();
-		const info = credentials;
-		console.log(info.name);
+		console.log(credentials.tags);
+		formData.append('photo', this.state.photo.name);
+		formData.append('name', credentials.name);
+		formData.append('price', credentials.price);
+		formData.append('sale', credentials.sale);
+		credentials.tags.map((tag) => formData.append('tags', tag));
 
+		console.log(this.state.photo);
 		try {
-			const createdAnuncio = await createAnuncio(credentials);
-
+			const createdAnuncio = await createAnuncio(formData);
+			console.log(createdAnuncio);
 			history.push(`/anuncio/${createdAnuncio.result._id}`);
 		} catch (error) {}
 	};
@@ -50,6 +56,11 @@ class NewAnuncioPage extends React.Component {
 		console.log(tags);
 	};
 
+	handleImage = (event) => {
+		console.log(event.target.files[0]);
+		this.setState({ photo: event.target.files[0] });
+	};
+
 	handleChange = async (event) => {
 		console.log(event.target);
 		const target = event.target;
@@ -61,8 +72,8 @@ class NewAnuncioPage extends React.Component {
 	};
 
 	couldSubmit = () => {
-		const { form: { name, price, sale, photo } } = this.state;
-		return name && price && sale && photo;
+		const { form: { name, price, sale } } = this.state;
+		return name && price && sale;
 	};
 
 	render() {
@@ -90,7 +101,7 @@ class NewAnuncioPage extends React.Component {
 							name='photo'
 							type='file'
 							label='Foto'
-							onChange={this.handleChange}
+							onChange={this.handleImage}
 						/>
 						<div>
 							<AnuncioInput
