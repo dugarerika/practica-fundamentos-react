@@ -1,17 +1,16 @@
 import React from 'react';
 import Filtro from '../anuncios/Filtro';
-import { getFilterAnuncios } from '../../API/anuncios';
+import { getAllAnuncios } from '../../API/anuncios';
 
 import Anuncio from '../anuncios/Anuncio';
 import Layout from '../layout/Layout';
 class AnunciosPage extends React.Component {
 	state = {
-		anuncios: null,
-		generatedAnuncio: null
+		anuncios: null
 	};
 
-	getAnuncios = async (filter) => {
-		const resp = await getFilterAnuncios(filter);
+	getAnuncios = async () => {
+		const resp = await getAllAnuncios();
 		console.log(resp);
 		this.setState({ anuncios: resp.result.rows });
 	};
