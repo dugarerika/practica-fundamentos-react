@@ -15,8 +15,10 @@ class AnunciosPage extends React.Component {
 		this.setState({ anuncios: resp.result.rows });
 	};
 
-	handlefilter = (generatedAnuncio) =>
+	handlefilter = (generatedAnuncio) => {
+		console.log(generatedAnuncio);
 		this.setState({ anuncios: generatedAnuncio.result.rows });
+	};
 
 	async componentDidMount() {
 		this.getAnuncios();
@@ -24,9 +26,6 @@ class AnunciosPage extends React.Component {
 
 	renderFiltro() {
 		const { history } = this.props;
-		const { generatedAnuncios } = this.state;
-		console.log(generatedAnuncios);
-
 		return <Filtro onfilter={this.handlefilter} history={history} />;
 	}
 
